@@ -1,0 +1,25 @@
+#root {
+  font-family: Montserrat;
+}
+
+.navbar {
+  font-family: inherit;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-style: inherit;
+  list-style-type: none;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.body-text {
+  font-family: inherit;
+  font-size: 1.5rem;
+  margin-top: 200px;
+  padding: 1rem 2rem;
+  font-style: inherit;
+  color: #20C20E;
+}
