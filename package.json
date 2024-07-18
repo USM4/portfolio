@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dat.gui": "^0.7.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-typing-effect": "^2.0.5"
+    "react-typing-effect": "^2.0.5",
+    "three": "^0.166.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -25,6 +25,5 @@
   padding: 1rem 2rem;
   font-style: inherit;
   color: #20C20E;
-  display: flex;
-  justify-content: center;
+  padding: 100px;
 }
