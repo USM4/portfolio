@@ -13,6 +13,9 @@
   list-style-type: none;
   background-color: #000000;
   color: rgba(255, 255, 255, 0.87);
+  max-width: 1000px;
+  margin: 0 auto;
+  font-weight: bold;
 }
 
 .body-text {
@@ -22,4 +25,6 @@
   padding: 1rem 2rem;
   font-style: inherit;
   color: #20C20E;
+  display: flex;
+  justify-content: center;
 }
