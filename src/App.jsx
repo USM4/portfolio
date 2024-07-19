@@ -28,19 +28,19 @@ function App() {
 
     const BoxGeometry = new THREE.BoxGeometry();
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    // const cube = new THREE.Mesh(BoxGeometry, material);
+    const cube = new THREE.Mesh(BoxGeometry, material);
   
-    // scene.add(cube);
+    scene.add(cube);
     
-    // const planeGeometry = new THREE.PlaneGeometry(30,30);
-    // const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide});
-    // const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    // plane.rotation.x = -0.5 * Math.PI;
+    const planeGeometry = new THREE.PlaneGeometry(30,30);
+    const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide});
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -0.5 * Math.PI;
     
-    // scene.add(plane);
+    scene.add(plane);
 
-    // const gridHelper = new THREE.GridHelper(30);
-    // scene.add(gridHelper);
+    const gridHelper = new THREE.GridHelper(30);
+    scene.add(gridHelper);
 
     
     const sphereGeometry = new THREE.SphereGeometry(4,50,50);
@@ -67,8 +67,8 @@ function App() {
     // const textureLoader = new THREE.TextureLoader();
     // scene.background = textureLoader.load('/stars.jpeg');
     function animate() {
-      // cube.rotation.x += 0.01;
-      // cube.rotation.y += 0.01;
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
       step += options.speed;
       sphere.position.y = 10 * Math.abs(Math.sin(step));
       render.render(scene, camera);
