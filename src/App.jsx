@@ -20,59 +20,66 @@ function App() {
       1000
     );
     const controls = new OrbitControls(camera, render.domElement);
+    // const axesHelper = new THREE.AxesHelper(5);
+    // scene.add(axesHelper);
+    
+    camera.position.set(-10,7,45);
     controls.update();
-    const axesHelper = new THREE.AxesHelper(5);
-    scene.add(axesHelper);
 
-    camera.position.set(-10,30,30);
-
-    const BoxGeometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(BoxGeometry, material);
+    // const BoxGeometry = new THREE.BoxGeometry();
+    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    // const cube = new THREE.Mesh(BoxGeometry, material);
   
-    scene.add(cube);
+    // scene.add(cube);
     
-    const planeGeometry = new THREE.PlaneGeometry(30,30);
-    const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide});
-    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.rotation.x = -0.5 * Math.PI;
+    // const planeGeometry = new THREE.PlaneGeometry(30,30);
+    // const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.DoubleSide});
+    // const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    // plane.rotation.x = -0.5 * Math.PI;
     
-    scene.add(plane);
+    // scene.add(plane);
 
-    const gridHelper = new THREE.GridHelper(30);
-    scene.add(gridHelper);
+    // const gridHelper = new THREE.GridHelper(30);
+    // scene.add(gridHelper);
 
-    
+    render.setClearColor(0x0);
+    const textureLoader = new THREE.TextureLoader();
+    const moonTexture = textureLoader.load('/neptune.jpeg');
     const sphereGeometry = new THREE.SphereGeometry(4,50,50);
-    const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0x0000FF , wireframe: true});
+    const sphereMaterial = new THREE.MeshBasicMaterial({  map: moonTexture});
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere.position.set(-10,10,0);
-    
-    
+    sphere.position.set(8,8,8);    
     scene.add(sphere);
     
-    const gui = new dat.GUI();
-    const options= {
-      wireframe: false,
-      sphereColor: 0xff0000,
-      speed: 0.02,
-    };
-    
-    gui.addColor(options, 'sphereColor').onChange(function(e) {sphere.material.color.set(e)});
-    gui.add(options, 'wireframe').onChange(function(e) {sphere.material.wireframe = e});
-    gui.add(options, 'speed',0, 0.1).onChange(function(e) {speed = e});
-    let step = 0;
+    const moonLight1 = new THREE.PointLight(0x20C20E, 5); // white light
+    moonLight1.position.set(-15, 10, 0); // position the light
+    scene.add(moonLight1);
 
-    render.setClearColor(0x20C20E);
-    // const textureLoader = new THREE.TextureLoader();
-    // scene.background = textureLoader.load('/stars.jpeg');
+    const moonLight2 = new THREE.PointLight(0x20C20E, 5); // yellowish light
+    moonLight2.position.set(-5, 10, 0); // position the light
+    scene.add(moonLight2);
+  
+    // const gui = new dat.GUI();
+    
+    // gui.addColor(options, 'sphereColor').onChange(function(e) {sphere.material.color.set(e)});
+    // gui.add(options, 'wireframe').onChange(function(e) {sphere.material.wireframe = e});
+    // gui.add(options, 'speed',0, 0.1).onChange(function(e) {speed = e});
+
+
+    let step = 0;
+    let speed = 0.02;
+    
     function animate() {
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      step += options.speed;
+      // cube.rotation.x += 0.01;
+      // cube.rotation.y += 0.01;
+      step += speed;
+      sphere.material.color.set(0x20C20E);
       sphere.position.y = 10 * Math.abs(Math.sin(step));
+      // sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
       render.render(scene, camera);
     }
+    console.log(sphere.position);
     render.setAnimationLoop(animate);
   }, []);
 
@@ -84,8 +91,9 @@ function App() {
           <li>Projects</li>
           <li>Lifestyle</li>
           <li>Cv</li>
-          <img src="instagram.png" style={{ width: "30px", height: "30px" }} alt="Instagram" />
-          <img src="github.svg" style={{ width: "30px", height: "30px" }} alt="GitHub" />
+          {/* <img src="instagram.png" style={{ width: "30px", height: "30px" }} alt="Instagram" />
+          <img src="github.svg" style={{ width: "30px", height: "30px" }} alt="GitHub" /> */}
+          <li>Contact</li>
         </ul>
       </div>
       <div className="App">
