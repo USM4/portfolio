@@ -6,6 +6,7 @@ import ReactTypingEffect from 'react-typing-effect';
 import * as dat from 'dat.gui';
 import { Wireframe } from 'three/examples/jsm/Addons.js';
 import { cos } from 'three/examples/jsm/nodes/Nodes.js';
+import { color } from 'dat.gui';
 
 function App() {
   useEffect(() => {
@@ -51,13 +52,13 @@ function App() {
     sphere.position.set(8,8,8);    
     scene.add(sphere);
     
-    const moonLight1 = new THREE.PointLight(0x20C20E, 5); // white light
-    moonLight1.position.set(-15, 10, 0); // position the light
-    scene.add(moonLight1);
+    // const moonLight1 = new THREE.PointLight(0x20C20E, 5); // white light
+    // moonLight1.position.set(-15, 10, 0); // position the light
+    // scene.add(moonLight1);
 
-    const moonLight2 = new THREE.PointLight(0x20C20E, 5); // yellowish light
-    moonLight2.position.set(-5, 10, 0); // position the light
-    scene.add(moonLight2);
+    // const moonLight2 = new THREE.PointLight(0x20C20E, 5); // yellowish light
+    // moonLight2.position.set(-5, 10, 0); // position the light
+    // scene.add(moonLight2);
   
     // const gui = new dat.GUI();
     
@@ -72,9 +73,9 @@ function App() {
     function animate() {
       // cube.rotation.x += 0.01;
       // cube.rotation.y += 0.01;
-      step += speed;
+      // step += speed;
       sphere.material.color.set(0x20C20E);
-      sphere.position.y = 10 * Math.abs(Math.sin(step));
+      // sphere.position.y = 10 * Math.abs(Math.sin(step));
       // sphere.rotation.x += 0.01;
       sphere.rotation.y += 0.01;
       render.render(scene, camera);
@@ -87,7 +88,7 @@ function App() {
     <>
       <div className="main-div">
         <ul className="navbar">
-          <li>BSISI</li>
+          <li className="logo">hh</li>
           <li>Projects</li>
           <li>Lifestyle</li>
           <li>Cv</li>

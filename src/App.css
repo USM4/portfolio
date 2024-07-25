@@ -1,5 +1,5 @@
 #root {
-  font-family: Montserrat;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .navbar {
@@ -12,10 +12,15 @@
   font-style: inherit;
   list-style-type: none;
   background-color: #000000;
-  color: #20C20E;
+  color: #ffffff;
   max-width: 1000px;
   margin: 0 auto;
   font-weight: bold;
+  
+}
+
+.navbar li:hover, .logo {
+  color :#20C20E;
 }
 
 .body-text {
