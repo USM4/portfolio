@@ -57,7 +57,7 @@ const Ta7arokat = () => {
           // cube.rotation.x += 0.01;
           // cube.rotation.y += 0.01;
           // step += speed;
-          sphere.material.color.set(0x20C20E);
+          sphere.material.color.set(0x2D26CA);
           // sphere.position.y = 10 * Math.abs(Math.sin(step));
           // sphere.rotation.x += 0.01;
           sphere.rotation.y += 0.001;
