@@ -64,7 +64,7 @@ function Navbar() {
         <div className="text-center">
           <div className="flex flex-col gap-6">
             <h1 className="font-mono text-stone-200 font-bold glowing-text text-6xl ">
-              Hi I'm Oussama Redoine
+              Hi, My name is Oussama Redoine
             </h1>
             <h2 className="font-mono text-stone-200 font-bold glowing-text text-3xl">
               Full Stack Developer M9awd Chwya
@@ -78,12 +78,15 @@ function Navbar() {
               <img src="./wolfbg.png" alt="Icon" className="w-26 h-26" />
             </button>
           </div>
+          <h2 className="font-mono text-blue-800 font-bold glowing-text text-3xl">
+              explore my world
+            </h2>
         </div>
       </div>
 
       <div
         ref={nextSectionRef}
-        className="w-full h-screen flex justify-center items-center"
+        className="w-screen h-full flex justify-center items-center "
       >
         <Projects/>
       </div>
