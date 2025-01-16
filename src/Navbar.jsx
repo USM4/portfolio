@@ -8,11 +8,10 @@ function Navbar() {
   const nextSectionRef = useRef(null)
   const [isClicked, setIsClicked] = useState(null);
   const navigate = useNavigate();
-
+  
   const handleScrollToNextSection = () => {
     if (nextSectionRef.current) {
       nextSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
-      navigate('/projects');
     }
   };
 
