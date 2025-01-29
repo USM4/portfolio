@@ -69,7 +69,7 @@ function Intro() {
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center gap-8">
           <motion.div
-            className="relative group mb-6"
+            className="relative group mb-6 z-20"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -82,12 +82,8 @@ function Intro() {
                 className="w-full h-full rounded-full object-cover border-4 border-blue-500/20 shadow-lg transform transition duration-500 hover:scale-105"
               />
               <div className="absolute inset-0 rounded-full bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            
-             
             </div>
           </motion.div>
-
           <motion.div
             className="text-center space-y-6"
             initial={{ opacity: 0, y: 50 }}
@@ -105,12 +101,10 @@ function Intro() {
 
             <div className="pt-8">
               <h2 className="font-mono text-stone-200 font-bold glowing-text text-3xl sm:text-2xl relative inline-block group cursor-default">
-                explore my world
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </h2>
             </div>
           </motion.div>
-
           <motion.div
             className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-50"
             initial={{ opacity: 1, y: 20 }}
@@ -118,26 +112,28 @@ function Intro() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="w-1 h-16 bg-gradient-to-b from-blue-500 to-transparent rounded-full animate-pulse" />
-            
           </motion.div>
-           <div className="absolute bottom-10 w-full overflow-hidden">
-              <motion.div
-                className="flex gap-8 py-2 bg-black border-t-4 border-b-4 border-yellow-400 text-yellow-400 font-bold uppercase tracking-wide text-lg whitespace-nowrap"
-                initial={{ x: "100%" }}
-                animate={{ x: "-100%" }}
-                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              >
-                {Array(2).fill(
-                  skills.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-4 px-4">
-                      <img src={skill.icon} alt={skill.name} className="w-8 h-8" />
-                      <span>{skill.name}</span>
-                    </div>
-                  ))
-                )}
-              </motion.div>
-            </div>
-         //////////////////////////////
+          <div className="absolute p-32 z-0 w-full">
+            <motion.div
+              className="flex w-max gap-10 py-2 bg-black border-t-4 border-b-4 border-yellow-400 text-yellow-400 font-bold uppercase tracking-wide text-lg whitespace-nowrap"
+              initial={{ x: "100%" }}
+              animate={{ x: "-100%" }}
+              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            >
+              {Array(2).fill(
+                skills.map((skill, index) => (
+                  <div key={index} className="flex items-center gap-4 px-4">
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-8 h-8"
+                    />
+                    <span>{skill.name}</span>
+                  </div>
+                ))
+              )}
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
@@ -145,4 +141,3 @@ function Intro() {
 }
 
 export default Intro;
-
