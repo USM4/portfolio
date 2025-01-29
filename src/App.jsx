@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import StarryBackground from './StarryBackground.jsx';
 import Navbar from './Navbar.jsx';
 import Projects from './Projects.jsx';
+import Links from './Links.jsx';
+import About from './About.jsx';
+import Home from './Home.jsx';
 
 function App() {
 
@@ -10,8 +13,11 @@ function App() {
     <Router>
       <StarryBackground />
       <Routes>
-        <Route path='/' element={<Navbar/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/projects' element={<><Navbar/><Projects/></>} />
+        <Route path='/links' element={<><Navbar/><Links/></>} />
+        <Route path='/about' element={<><Navbar/><About/></>} />
+
       </Routes>
     </Router>
   );

@@ -17,6 +17,7 @@
   /* background-color: red; */
 }
 
+
 @keyframes shine {
   0% {
     background-position: -200%;
@@ -38,3 +39,32 @@
   animation: shine 3s infinite linear;
 }
 
+/* @keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+} */
+.mobile-menu {
+  transform-origin: top;
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

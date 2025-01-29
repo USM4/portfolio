@@ -15,6 +15,7 @@ const StarryBackground = () => {
           options={{
             background: {
               color: {
+                
                 value: "#000",
               },
             },

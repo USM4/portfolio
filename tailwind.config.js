@@ -5,7 +5,8 @@ module.exports = {
     "./src/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   fontFamily: {
     mono: ['var(--font-mono)'],

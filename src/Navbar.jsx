@@ -1,96 +1,138 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
-import { GoPerson } from "react-icons/go";
-import Projects from './Projects.jsx'
-import { useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {
-  const nextSectionRef = useRef(null)
   const [isClicked, setIsClicked] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  
-  const handleScrollToNextSection = () => {
-    if (nextSectionRef.current) {
-      nextSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
+  const location = useLocation();
+
+  const handleScrollTo = (e, sectionName) => {
+    e.preventDefault();
+    const targetSection = document.getElementById(sectionName);
+
+    if (targetSection) {
+      const startPosition = window.pageYOffset;
+      const targetPosition =
+        targetSection.getBoundingClientRect().top + window.pageYOffset;
+      const duration = 1500;
+      let startTime = null;
+
+      const animation = (currentTime) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easeInOutCubic =
+          progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
+
+        window.scrollTo(
+          0,
+          startPosition + (targetPosition - startPosition) * easeInOutCubic
+        );
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
     }
+    setMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   const handleClicked = (index) => {
     setIsClicked(index);
   };
 
+  const menuItems = [
+    { id: "home", label: "Home" },
+    { id: "projects", label: "Projects" },
+    { id: "links", label: "Links" },
+    { id: "about", label: "About" },
+  ];
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileMenuOpen &&
+        !event.target.closest(".mobile-menu") &&
+        !event.target.closest(".menu-button")
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [mobileMenuOpen]);
+
   return (
-    <>
-      <div className="absolute w-full text-blue-700 flex">
-        <div className="w-full text-blue-700 flex">
-          <ul className="p-10 w-full flex flex-row justify-center cursor-pointer space-x-40">
+    <nav className="fixed w-full text-blue-700 z-50 backdrop-blur-sm">
+      {/* Desktop Menu */}
+      <div className="hidden lg:block">
+        <ul className="p-10 w-full flex flex-row justify-center cursor-pointer space-x-40">
+          {menuItems.map((item, index) => (
             <li
-              onClick={() => handleClicked(0)}
+              key={item.id}
+              onClick={() => handleClicked(index)}
               className={`font-mono text-3xl font-bold glowing-text hover:text-stone-200 hover:scale-105 transition-all ${
-                isClicked === 0 ? "border-b-4 border-blue-700 shadow-blue-700 glow-border" : ""
+                isClicked === index
+                  ? "border-b-4 border-blue-700 shadow-blue-700 glow-border"
+                  : ""
               }`}
             >
-              <button onClick={() => navigate('/')}> Home </button>
+              <button onClick={(e) => handleScrollTo(e, item.id)}>
+                <a href={`#${item.id}`}>{item.label}</a>
+              </button>
             </li>
-            <li
-              onClick={() => handleClicked(1)}
-              className={`font-mono text-3xl font-bold glowing-text hover:text-stone-200 hover:scale-105 transition-all ${
-                isClicked === 1 ? "border-b-4 border-blue-700 shadow-blue-700 glow-border" : ""
-              }`}
-            >
-              <button onClick={() => navigate('/projects')}> Projects </button>
-            </li>
-            <li
-              onClick={() => handleClicked(2)}
-              className={`font-mono text-3xl font-bold glowing-text hover:text-stone-200 hover:scale-105 transition-all ${
-                isClicked === 2 ? "border-b-4 border-blue-700 shadow-blue-700 glow-border" : ""
-              }`}
-            >
-              <button> Work </button>
-            </li>
-            <li
-              onClick={() => handleClicked(3)}
-              className={`font-mono text-3xl font-bold glowing-text hover:text-stone-200 hover:scale-105 transition-all ${
-                isClicked === 3 ? "border-b-4 border-blue-700 shadow-blue-700 glow-border" : ""
-              }`}
-            >
-              <button> Links </button>
-            </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
       </div>
 
-      <div className="flex w-full h-screen justify-center items-center">
-        <div className="text-center">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-mono text-stone-200 font-bold glowing-text text-6xl ">
-              Hi, My name is Oussama Redoine
-            </h1>
-            <h2 className="font-mono text-stone-200 font-bold glowing-text text-3xl">
-              Full Stack Developer M9awd Chwya
-            </h2>
-          </div>
-          <div className="flex flex-col p-10">
-            <button
-              className="w-28 h-28 rounded-full border- flex items-center justify-center m-auto border-2 border-blue-700 hover:border-blue-500 shadow-lg hover:shadow-[0_0_15px_3px_rgba(45,38,202,0.8)] transition-all"
-              onClick={handleScrollToNextSection}
-            >
-              <img src="./wolfbg.png" alt="Icon" className="w-26 h-26" />
-            </button>
-          </div>
-          <h2 className="font-mono text-blue-800 font-bold glowing-text text-3xl">
-              explore my world
-            </h2>
-        </div>
-      </div>
 
-      <div
-        ref={nextSectionRef}
-        className="w-screen h-full flex justify-center items-center "
-      >
-        <Projects/>
+      <div className="lg:hidden">
+        <button
+          className="menu-button p-4 m-2 text-blue-700 focus:outline-none"
+          onClick={(e) => {
+            e.stopPropagation();
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+        >
+          {mobileMenuOpen ? (
+            <AiOutlineClose size={24} />
+          ) : (
+            <GiHamburgerMenu size={24} />
+          )}
+        </button>
+
+        {mobileMenuOpen && (
+          <div className="mobile-menu absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-md shadow-lg">
+            <ul className="flex flex-col items-start">
+              {menuItems.map((item, index) => (
+                <li
+                  key={item.id}
+                  className="w-full"
+                  onClick={() => handleClicked(index)}
+                >
+                  <button
+                    onClick={(e) => handleScrollTo(e, item.id)}
+                    className={`w-full text-left px-6 py-4 font-mono text-xl font-bold hover:bg-blue-700/20 transition-all ${
+                      isClicked === index ? "border-l-4 border-blue-700" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </>
+    </nav>
   );
 }
 
