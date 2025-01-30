@@ -12,6 +12,7 @@ function Navbar() {
     { id: "projects", label: "Projects" },
     { id: "links", label: "Links" },
     { id: "about", label: "About" },
+
   ];
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Resume from "/Oussama_Redoine_Resume.pdf";
 
 const skills = [
   {
@@ -57,7 +58,7 @@ function Intro() {
   return (
     <div
       id="home"
-      className="flex w-full h-screen justify-center items-center relative overflow-hidden"
+      className="flex w-full h-screen justify-center items-center overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center gap-8">
@@ -88,6 +89,13 @@ function Intro() {
               <h2 className="font-mono font-bold text-2xl sm:text-3xl text-blue-700 transition duration-500">
                 Full Stack Developer M9awd Chwya
               </h2>
+            </div>
+            <div className="w-full">
+              <button className=" text-blue-800 border-2 border-blue-800 px-4 py-2 rounded-xl hover:bg-blue-800 hover:text-black font-mono font-bold transition-colors duration-300">
+                <a href={Resume} target="blank">
+                  Resume
+                </a>
+              </button>
             </div>
 
             <div className="pt-8">
