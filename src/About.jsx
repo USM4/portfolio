@@ -35,6 +35,7 @@ function About() {
     },
   ];
 
+
   const skills = [
     "Full-Stack Development",
     "Cloud Architecture",
