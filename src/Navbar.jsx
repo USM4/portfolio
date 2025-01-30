@@ -96,9 +96,7 @@ function Navbar() {
       variants={navVariants}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? " backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+        scrolled ? " backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
       {/* Desktop Menu */}
@@ -138,11 +136,11 @@ function Navbar() {
       <div className="lg:hidden">
         <div className="flex justify-between items-center p-4">
           <motion.button
-            className="p-2 rounded-lg bg-slate-800/50 text-blue-700 hover:bg-slate-700/50 transition-colors"
+            className="p-4 rounded-lg bg-slate-800/50 text-blue-700 hover:bg-slate-700/50 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={48} /> : <Menu size={48} />}
           </motion.button>
         </div>
 
@@ -165,7 +163,7 @@ function Navbar() {
                   >
                     <button
                       onClick={(e) => handleScrollTo(e, item.id)}
-                      className={`w-full px-6 py-4 text-left font-mono text-lg font-semibold
+                      className={`w-full px-12 py-8 text-left font-mono text-2xl font-semibold
                         transition-all duration-300 hover:bg-blue-700/10
                         ${
                           activeSection === item.id
