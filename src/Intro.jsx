@@ -87,7 +87,7 @@ function Intro() {
                 Hi, I'm Oussama Redoine
               </h1>
               <h2 className="font-mono font-bold text-2xl sm:text-3xl text-blue-700 transition duration-500">
-                Full Stack Developer M9awd Chwya
+                Full-Stack Developer | Always Improving
               </h2>
             </div>
             <div className="w-full">
