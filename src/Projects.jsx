@@ -35,7 +35,6 @@ const ProjectCard = ({ title, details, github, icon: Icon }) => {
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </div>
         </div>
-
         {/* Back of card */}
         <div className="absolute w-full h-full inset-0 bg-gradient-to-r from-blue-700/10 via-purple-400/10 to-black-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div className="w-full h-full bg-slate-800/30 backdrop-blur-lg border border-blue-500/30 rounded-xl p-6 flex flex-col group-hover:border-blue-500/60 transition-all duration-300">
@@ -89,8 +88,8 @@ function Projects() {
     {
       title: "DevOps Pipeline",
       details:
-        "A milestone challenge testing all your accumulated programming skills. Showcase your capabilities through rigorous, real-world scenarios.",
-      github: "https://github.com/USM4/hh",
+        "A milestone challenge testing all your accumulated programming skills. Showcase capabilities through rigorous, real-world scenarios.",
+      github: "https://github.com/USM4",
       icon: Database,
     },
     {
@@ -115,20 +114,22 @@ function Projects() {
         <h2 className="font-mono text-stone-200 font-bold glowing-text text-6xl">
           Projects
         </h2>
-        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 rounded-full" />
+        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-800 to-yellow-300 rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              details={project.details}
-              github={project.github}
-              icon={project.icon}
-            />
-          ))}
+          {
+            projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                details={project.details}
+                github={project.github}
+                icon={project.icon}
+              />
+            ))
+          }
         </div>
       </div>
     </div>

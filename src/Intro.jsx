@@ -10,17 +10,31 @@ const skills = [
     delay: 0,
   },
   {
+    name: "PostgreSQL",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+    x: 127,
+    y: 127,
+    delay: 0.1,
+  },
+  {
+    name: "Docker",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
+    x: 0,
+    y: 180,
+    delay: 0.2,
+  },
+  {
+    name: "Git",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
+    x: -127,
+    y: 127,
+    delay: 0.3,
+  },
+  {
     name: "JavaScript",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
     x: -127,
     y: -127,
-    delay: 0.2,
-  },
-  {
-    name: "TypeScript",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
-    x: 0,
-    y: -180,
     delay: 0.4,
   },
   {
@@ -28,35 +42,14 @@ const skills = [
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
     x: 127,
     y: -127,
-    delay: 0.6,
+    delay: 0.5,
   },
   {
     name: "Django",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg",
     x: 180,
     y: 0,
-    delay: 0.8,
-  },
-  {
-    name: "PostgreSQL",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
-    x: 127,
-    y: 127,
-    delay: 1,
-  },
-  {
-    name: "Docker",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
-    x: 0,
-    y: 180,
-    delay: 1.2,
-  },
-  {
-    name: "Git",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
-    x: -127,
-    y: 127,
-    delay: 1.4,
+    delay: 0.6,
   },
 ];
 
@@ -70,9 +63,8 @@ function Intro() {
         <div className="flex flex-col items-center gap-8">
           <motion.div
             className="relative group mb-6 z-20"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-yellow-400 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-400" />
             <div className="relative w-80 h-80">
@@ -86,9 +78,8 @@ function Intro() {
           </motion.div>
           <motion.div
             className="text-center space-y-6"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="space-y-4">
               <h1 className="font-mono text-stone-200 font-bold glowing-text text-5xl sm:text-6xl bg-clip-text">
@@ -105,24 +96,24 @@ function Intro() {
               </h2>
             </div>
           </motion.div>
-          <motion.div
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-50"
-            initial={{ opacity: 1, y: 20 }}
-            animate={{ opacity: 1.5, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="w-1 h-16 bg-gradient-to-b from-blue-500 to-transparent rounded-full animate-pulse" />
-          </motion.div>
           <div className="absolute p-32 z-0 w-full">
             <motion.div
               className="flex w-max gap-10 py-2 bg-black border-t-4 border-b-4 border-yellow-400 text-yellow-400 font-bold uppercase tracking-wide text-lg whitespace-nowrap"
-              initial={{ x: "100%" }}
-              animate={{ x: "-100%" }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{
+                duration: 60,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop",
+              }}
             >
-              {Array(2).fill(
+              {Array(3).fill(
                 skills.map((skill, index) => (
-                  <div key={index} className="flex items-center gap-4 px-4">
+                  <div
+                    key={index}
+                    className="flex items-center gap-4 px-4 hover:scale-110 transition-transform duration-300"
+                  >
                     <img
                       src={skill.icon}
                       alt={skill.name}
