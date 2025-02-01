@@ -38,7 +38,6 @@ function About() {
 
   const skills = [
     "Full-Stack Development",
-    "Cloud Architecture",
     "DevOps Practices",
     "System Design",
     "Mentorship",
@@ -102,9 +101,7 @@ function About() {
               <h3 className="text-2xl font-semibold text-white">Passion</h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Dedicated to building scalable systems, automating workflows, and
-              mentoring developers. Passionate about creating efficient
-              solutions that make a difference in the tech community.
+              Creating scalable systems, automating my way to freedom
             </p>
           </div>
 

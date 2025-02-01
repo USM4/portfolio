@@ -1,0 +1,15 @@
+Full-Stack Web Development – Smash Pong Game
+Developed a real-time ping pong game using React, Django, Docker, and PostgreSQL, handling 100+ concurrent users with smooth gameplay.
+Implemented JWT-based authentication and OAuth login, securing 100% of user sessions and preventing unauthorized access.
+Designed RESTful APIs with Django Rest Framework (DRF), reducing response times by 30% through efficient query optimization.
+Integrated WebSockets with Django Channels, achieving a 50ms latency reduction for real-time game updates.
+Built a friend request and notification system, increasing user engagement by 40%.
+Scalable Infrastructure for a WordPress Site-_------------------
+Designed and deployed a Dockerized WordPress environment, reducing server setup time by 70%.
+Configured TLS-secured NGINX, ensuring 99.99% uptime and improving site security.
+Implemented Docker Compose to manage 3+ services (NGINX, PHP-FPM, MariaDB), streamlining deployment and maintenance.
+Used Docker volumes for persistent storage, preventing data loss in 100% of container restarts.
+Internet Relay Chat (IRC) Server in C++
+Developed a multi-client IRC server using non-blocking I/O, supporting 100+ simultaneous connections without performance degradation.
+Implemented JOIN, PART, KICK, and INVITE commands based on the IRC protocol, improving chatroom functionality.
+Designed an efficient memory management system, reducing server crashes by 80% under heavy load.
