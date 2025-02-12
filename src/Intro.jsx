@@ -67,7 +67,7 @@ function Intro() {
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-yellow-400 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-400" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-yellow-300 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-400" />
             <div className="relative w-80 h-80">
               <img
                 src="./oredoine.jpg"
