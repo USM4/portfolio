@@ -35,7 +35,6 @@ function About() {
     },
   ];
 
-
   const skills = [
     "Full-Stack Development",
     "DevOps Practices",
@@ -52,7 +51,7 @@ function About() {
       <div className="w-full max-w-4xl">
         {/* Header */}
         <div className="relative mb-16 text-center">
-          <h2 className="font-mono text-stone-200 font-bold glowing-text text-6xl ">
+          <h2 className="font-mono text-stone-200 font-bold glowing-text text-3xl md:text-5xl lg:text-7xl">
             About Me
           </h2>
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 rounded-full" />

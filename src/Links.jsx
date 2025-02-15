@@ -103,7 +103,7 @@ function Links() {
           <div className="w-full h-full justify-center text-white flex flex-col items-center py-16 px-4">
             {/* Header with animated gradient */}
             <div className="relative mb-16">
-              <h1 className="font-mono text-stone-200 font-bold glowing-text text-6xl">
+              <h1 className="font-mono text-stone-200 font-bold glowing-text text-3xl md:text-5xl lg:text-7xl">
                 LINKS
               </h1>
               <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-300 rounded-full animate-pulse" />

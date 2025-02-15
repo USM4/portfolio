@@ -136,7 +136,7 @@ function Navbar() {
       <div className="lg:hidden">
         <div className="flex justify-between items-center p-4">
           <motion.button
-            className="p-4 rounded-lg bg-slate-800/50 text-blue-700 hover:bg-slate-700/50 transition-colors"
+            className="p-2 rounded-lg bg-slate-800/50 text-blue-700 hover:bg-slate-700/50 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >

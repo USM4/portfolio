@@ -111,14 +111,14 @@ function Projects() {
   return (
     <div className="min-h-screen py-20 px-4" id="projects">
       <div className="relative mb-16 text-center">
-        <h2 className="font-mono p-10 text-stone-200 font-bold glowing-text text-6xl">
+        <h2 className="font-mono p-10 text-stone-200 font-bold glowing-text text-3xl md:text-5xl lg:text-7xl">
           Projects
         </h2>
         <div className="absolute left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-800 to-yellow-300 rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-6 md:gap-10 place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-16 md:gap-8 sm:gap-8 place-items-center">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
