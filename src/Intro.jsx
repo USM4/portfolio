@@ -91,8 +91,8 @@ function Intro() {
               </h2>
             </div>
             <div className="w-full">
-              <button className=" text-blue-800 border-2 border-blue-800 px-4 py-2 rounded-xl hover:bg-blue-800 hover:text-black font-mono font-bold transition-colors duration-300">
-                <a href={Resume} target="blank">
+              <button className=" text-blue-800 border-2 border-blue-800 px-4 md:px-8 py-2 md:py-4 md:text-xl rounded-xl hover:bg-blue-800 hover:text-black font-mono font-bold transition-colors duration-300">
+                <a href={Resume} target="blank" >
                   Resume
                 </a>
               </button>
