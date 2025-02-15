@@ -119,7 +119,7 @@ function Navbar() {
                   {item.label}
                 </span>
                 <span
-                  className={`absolute -bottom-2 left-0 w-full h-0.5 transform transition-all duration-300
+                  className={`absolute -bottom-2 left-0 w-full h-0.2 transform transition-all duration-300
                   ${
                     activeSection === item.id
                       ? "bg-blue-700 scale-x-100"
