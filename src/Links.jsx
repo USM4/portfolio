@@ -42,7 +42,7 @@ function Links() {
   const stats = [
     {
       label: "Commits",
-      value: "500+",
+      value: "1500+",
       icon: Activity,
       description: "Total contributions across all repositories",
     },
@@ -57,13 +57,13 @@ function Links() {
   const skills = [
     {
       category: "Languages",
-      items: ["JavaScript", "Python", "TypeScript", "SQL"],
+      items: ["JavaScript", "Python", "TypeScript", "C", "C++", "SQL"],
       icon: Code2,
       gradient: "from-blue-400 to-green-400",
     },
     {
-      category: "Frameworks",
-      items: ["React", "Node.js", "Express", "Next.js"],
+      category: "Frameworks && Libraries",
+      items: ["React.js", "Django", "Next.js"],
       icon: Hexagon,
       gradient: "from-purple-400 to-pink-400",
     },
