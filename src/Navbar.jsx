@@ -133,8 +133,8 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className="lg:hidden">
-        <div className="flex justify-between items-center p-4">
+      <div className="lg:hidden flex justify-between h-28">
+        <div className="flex justify-center items-center p-3">
           <motion.button
             className="p-2 rounded-lg bg-slate-800/50 text-blue-700 hover:bg-slate-700/50 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -142,6 +142,13 @@ function Navbar() {
           >
             {mobileMenuOpen ? <X size={48} /> : <Menu size={48} />}
           </motion.button>
+        </div>
+        <div className="flex justify-between items-center ">
+          <img
+            className="w-28 h-28 rounded-full "
+            src="wolfbg.png"
+            alt="logo"
+          />
         </div>
 
         <AnimatePresence>

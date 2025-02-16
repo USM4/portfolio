@@ -52,9 +52,9 @@ function Home() {
 
   return (
     <div>
-      <div className="fixed bottom-8 w-full flex justify-center items-end">
+      <div className="hidden md:flex fixed bottom-8 p-10 w-full justify-end items-end">
         <button
-          className="text-white p-2 md:w-28 md:h-28 w-16 h-16 rounded-full flex items-end m-auto border-2 border-blue-700 hover:border-blue-500 shadow-lg hover:shadow-[0_0_15px_3px_rgba(45,38,202,0.8)] transition-all z-50"
+          className="text-white p-2 md:w-28 md:h-28 w-16 h-16 rounded-full flex items-end  border-2 border-blue-700 hover:border-blue-500 shadow-lg hover:shadow-[0_0_15px_3px_rgba(45,38,202,0.8)] transition-all z-50"
           onClick={(e) => {
             handleScrollTo(e, sections[nextSection]);
             if (nextSection + 1 === sections.length) setNextSection(0);
