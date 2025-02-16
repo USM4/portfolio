@@ -150,7 +150,9 @@ function Links() {
                       <div
                         key={stat.label}
                         className={`relative group p-6 rounded-xl bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-slate-700/50 cursor-pointer ${
-                          activeCard === index ? "ring-2 ring-blue-500" : ""
+                          activeCard === index
+                            ? "ring-2 ring-blue-500 z-10"
+                            : ""
                         }`}
                         onMouseEnter={() => setActiveCard(index)}
                         onMouseLeave={() => setActiveCard(null)}
