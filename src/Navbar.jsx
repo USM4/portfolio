@@ -143,7 +143,10 @@ function Navbar() {
             {mobileMenuOpen ? <X size={48} /> : <Menu size={48} />}
           </motion.button>
         </div>
-        <div className="flex justify-between items-center ">
+        <div
+          className="flex justify-between items-center"
+          onClick={(e) => handleScrollTo(e, "home")}
+        >
           <img
             className="w-28 h-28 rounded-full "
             src="wolfbg.png"
