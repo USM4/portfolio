@@ -40,7 +40,7 @@ const ProjectCard = ({ title, details, github, icon: Icon }) => {
           <div className="w-full h-full bg-slate-800/30 backdrop-blur-lg border border-blue-500/30 rounded-xl p-6 flex flex-col group-hover:border-blue-500/60 transition-all duration-300">
             <div className=" inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
             <h3 className="text-xl font-bold p-2 text-white mb-4">{title}</h3>
-            <p className="text-gray-300 flex-grow text-sm leading-relaxed ">
+            <p className="text-gray-300 flex-grow text-sm leading-relaxed">
               {details}
             </p>
             <div className="mt-4 flex justify-end">
@@ -88,8 +88,8 @@ function Projects() {
     {
       title: "DevOps Pipeline",
       details:
-        "A milestone challenge testing all your accumulated programming skills. Showcase capabilities through rigorous, real-world scenarios.",
-      github: "https://github.com/USM4",
+        "Comming soon ...",
+      github: "",
       icon: Database,
     },
     {
