@@ -34,7 +34,7 @@ function Links() {
     {
       icon: Instagram,
       label: "Instagram",
-      href: "https://instagram.com/oussama_red1",
+      href: "https://instagram.com/oussamared_1",
       color: "hover:text-cyan-400",
     },
   ];
