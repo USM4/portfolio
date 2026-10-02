@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07070a;
+  --color-surface: #0e0e12;
+  --color-surface-2: #16161a;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.14);
+  --color-fg: #ededef;
+  --color-muted: #8b8b94;
+  --color-faint: #5c5c66;
+  --color-accent: #c6ff3d;
+  --color-accent-ink: #0b0d02;
+  --color-ok: #6ee7a8;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+/* Faint engineering grid behind the hero */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 40%, transparent 100%);
+}
+
+
+/* Subtle reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* cursor-follow light on work cards */
+.card-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(198 255 61 / 0.08), transparent 45%);
+}
+.tilt:hover .card-light::before { opacity: 1; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #07070a; }
+::-webkit-scrollbar-thumb { background: #1d1d24; border-radius: 6px; }
+
+/* ── marquee ── */
+.marquee-track { animation: marquee 48s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-100%); } }
+
+/* ── code ── */
+.code-body pre { background: transparent !important; margin: 0; }
+.code-body code { font-family: var(--font-mono); }
+
+/* ── intro ── */
+.intro-word { animation: fadeUp 0.6s 0.55s ease-out both; }
+.intro-bar { animation: bar 1.4s ease-in-out both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); letter-spacing: 0.9em; } to { opacity: 1; transform: none; } }
+@keyframes bar { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ── command menu ── */
+.cmd-in { animation: cmdIn 0.22s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes cmdIn { from { opacity: 0; transform: translateY(-8px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+/* ── sliced wordmark ── */
+.wordmark .wm-top,
+.wordmark .wm-bottom,
+.wordmark .wm-knife { transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+.wordmark .wm-top { transform: translate(-3.2px, -3px); }
+.wordmark .wm-bottom { transform: translate(2px, 1.7px); }
+.wordmark .wm-glint { stroke-dasharray: 14 200; stroke-dashoffset: 30; opacity: 0; }
+a:hover .wordmark .wm-top, .wordmark:hover .wm-top { transform: translate(-4.6px, -4.2px); }
+a:hover .wordmark .wm-bottom, .wordmark:hover .wm-bottom { transform: translate(2.8px, 2.4px); }
+a:hover .wordmark .wm-knife, .wordmark:hover .wm-knife { transform: translateX(3px); }
+a:hover .wordmark .wm-glint, .wordmark:hover .wm-glint { animation: wmGlint 0.7s ease-out; }
+@keyframes wmGlint { 0% { opacity: 0; stroke-dashoffset: 30; } 30% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: -110; } }
+
+/* entrance: knife thrusts in, then the word splits */
+.wm-anim .wm-knife { animation: wmThrust 0.75s 0.15s cubic-bezier(.2,.9,.1,1) both; }
+.wm-anim .wm-top { animation: wmTop 0.5s 0.75s cubic-bezier(.2,.8,.2,1) both; }
+.wm-anim .wm-bottom { animation: wmBottom 0.5s 0.75s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes wmThrust { from { transform: translateX(-120px); opacity: 0; } 60% { opacity: 1; } to { transform: none; opacity: 1; } }
+@keyframes wmTop { from { transform: none; } to { transform: translate(-3.2px, -3px); } }
+@keyframes wmBottom { from { transform: none; } to { transform: translate(2px, 1.7px); } }
+@media (prefers-reduced-motion: reduce) {
+  .wm-anim .wm-knife, .wm-anim .wm-top, .wm-anim .wm-bottom { animation: none; }
+}
