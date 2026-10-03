@@ -9,13 +9,13 @@ import { Intro } from "@/components/Intro";
 import "./globals.css";
 
 
-const title = `${profile.name} — E-commerce, Full-Stack & DevOps Engineer`;
+const title = `${profile.name} - E-commerce, Full-Stack & DevOps Engineer`;
 const description =
   "I build commerce systems end to end: WooCommerce & Shopify stores, large web platforms with Laravel, NestJS and Next.js, and Docker-based cloud infrastructure.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.domain),
-  title: { default: title, template: `%s — USM4 · ${profile.name}` },
+  title: { default: title, template: `%s - USM4 · ${profile.name}` },
   description,
   keywords: [
     "WooCommerce developer",

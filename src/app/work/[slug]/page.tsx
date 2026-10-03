@@ -110,7 +110,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
               {primaryHire.label}
             </Button>
             <Button href={`/work/${next.slug}`} variant="ghost">
-              Next: {next.title.split(" — ")[0]}
+              Next: {next.title.split(" - ")[0]}
             </Button>
           </div>
         </Container>

@@ -17,7 +17,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
             )}
-            <Scramble text={`${profile.name} — ${hero.eyebrow}`} />
+            <Scramble text={`${profile.name} - ${hero.eyebrow}`} />
           </div>
           <h1 className="text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.045em] sm:text-7xl lg:text-[5.6rem]">
             <span className="block">{hero.title[0]}</span>

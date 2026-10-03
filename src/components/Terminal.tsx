@@ -7,7 +7,7 @@ import { pulse } from "@/lib/stage";
 type Line = { t: "in" | "out" | "ok" | "acc" | "err" | "dim"; s: string };
 
 const banner: Line[] = [
-  { t: "acc", s: "oussama-os v2.0 — interactive shell" },
+  { t: "acc", s: "oussama-os v2.0 - interactive shell" },
   { t: "dim", s: "Type a command or tap one below. Try `deploy`." },
 ];
 
@@ -79,7 +79,7 @@ export function Terminal() {
         break;
       case "whoami":
         print(
-          { t: "acc", s: `${profile.name} — ${profile.role}` },
+          { t: "acc", s: `${profile.name} - ${profile.role}` },
           { t: "out", s: "Stores · Platforms · Infrastructure. Based in Morocco, working worldwide." },
           { t: "dim", s: "Trained at 1337 (42 Network). Ships end to end." },
         );
@@ -123,7 +123,7 @@ export function Terminal() {
         print({ t: "err", s: "nice try. backups are automated." });
         break;
       default:
-        print({ t: "err", s: `command not found: ${cmd} — try \`help\`` });
+        print({ t: "err", s: `command not found: ${cmd} - try \`help\`` });
     }
   };
 
@@ -151,7 +151,7 @@ export function Terminal() {
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/80" />
         </div>
-        <span className="font-mono text-[11px] text-faint">oussama@ored1 — zsh</span>
+        <span className="font-mono text-[11px] text-faint">oussama@ored1 - zsh</span>
         <span className={`font-mono text-[11px] ${busy ? "text-accent" : "text-faint"}`}>{busy ? "● deploying" : "● idle"}</span>
       </div>
       <div ref={box} className="h-[22rem] overflow-y-auto px-5 py-4 font-mono text-[12.5px] leading-6 sm:text-[13px]">

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Wordmark } from "./Logo";
 
-/** Brand intro — bayonet unsheathes, USM4 lands, curtain lifts. Once per session. */
+/** Brand intro - bayonet unsheathes, USM4 lands, curtain lifts. Once per session. */
 export function Intro() {
   const [phase, setPhase] = useState<"show" | "hide" | "gone">("show");
   useEffect(() => {

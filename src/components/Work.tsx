@@ -18,7 +18,7 @@ export function Work() {
               Systems in production. <span className="text-muted">Platforms in the wild.</span>
             </>
           }
-          lead="Commerce fleets, B2B platforms, AI services and infrastructure. Client work is anonymized — live demos and details on request."
+          lead="Commerce fleets, B2B platforms, AI services and infrastructure. Client work is anonymized - live demos and details on request."
         />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
           {caseStudies.map((c, i) => (

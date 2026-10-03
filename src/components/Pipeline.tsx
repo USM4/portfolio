@@ -13,7 +13,7 @@ export function Pipeline() {
             Five layers. <span className="text-muted">One engineer.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-fg/70 sm:text-lg">
-            Every order on the internet travels the same path — storefront, checkout, backend, database, cloud. Most
+            Every order on the internet travels the same path - storefront, checkout, backend, database, cloud. Most
             projects need three freelancers to cover it. I build every layer, so nothing breaks in between.
           </p>
         </div>
@@ -30,7 +30,7 @@ export function Pipeline() {
             <article className="reveal max-w-[34rem] rounded-xl border border-line bg-bg/75 p-7 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:p-9">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                  Stage {s.code} — {s.name}
+                  Stage {s.code} - {s.name}
                 </span>
                 <span className="font-mono text-[11px] text-faint">
                   {String(i + 1).padStart(2, "0")}/05

@@ -10,7 +10,7 @@ const icons = [
   siLinux, siGithubactions, siTailwindcss, siGooglegemini,
 ];
 
-/** Infinite logo strip — the stack I ship with. */
+/** Infinite logo strip - the stack I ship with. */
 export function TechMarquee() {
   const row = (aria: boolean) => (
     <ul className="marquee-track flex shrink-0 items-center gap-12 pr-12" aria-hidden={aria}>

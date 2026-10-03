@@ -20,14 +20,14 @@ export async function CodeShowcase() {
               Code that reads <span className="text-muted">like documentation.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-fg/70 sm:text-lg">
-              Typed, modular and secure. The same standards across NestJS, Laravel, Docker and WooCommerce — so your
+              Typed, modular and secure. The same standards across NestJS, Laravel, Docker and WooCommerce - so your
               project stays easy to extend long after launch.
             </p>
             <ul className="mt-8 space-y-3 font-mono text-[13px] text-muted">
               <li><span className="text-accent">✓</span> Transactions & validation at the boundary</li>
               <li><span className="text-accent">✓</span> Token rotation & guard-based auth</li>
               <li><span className="text-accent">✓</span> Isolated networks, read-only mounts</li>
-              <li><span className="text-accent">✓</span> Hooks over hacks — no core edits</li>
+              <li><span className="text-accent">✓</span> Hooks over hacks - no core edits</li>
             </ul>
           </div>
           <div className="min-w-0 lg:col-span-8">

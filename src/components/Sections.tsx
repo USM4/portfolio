@@ -16,7 +16,7 @@ export function Console() {
               Don&apos;t read. <span className="text-muted">Run it.</span>
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-fg/70 sm:text-lg">
-              A working shell. Ask who I am, list the stack — or type <code className="font-mono text-accent">deploy</code>{" "}
+              A working shell. Ask who I am, list the stack - or type <code className="font-mono text-accent">deploy</code>{" "}
               and watch the traffic in the system behind this page speed up.
             </p>
             <ol className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line">
@@ -158,7 +158,7 @@ export function Contact() {
           Let&apos;s build <span className="bg-gradient-to-r from-accent to-white bg-clip-text text-transparent">your system.</span>
         </h2>
         <p className="reveal mt-8 max-w-xl text-lg text-fg/70">
-          A new store, a platform, or infrastructure that needs fixing — send the brief. You get a reply within 24 hours
+          A new store, a platform, or infrastructure that needs fixing - send the brief. You get a reply within 24 hours
           with questions or a clear plan.
         </p>
         <div className="reveal mt-10 flex flex-wrap gap-3">

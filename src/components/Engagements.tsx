@@ -14,7 +14,7 @@ export function Engagements() {
               Three ways to start. <span className="text-muted">One standard.</span>
             </>
           }
-          lead="Fixed-scope projects or ongoing partnership — available on Upwork, Fiverr or directly."
+          lead="Fixed-scope projects or ongoing partnership - available on Upwork, Fiverr or directly."
         />
         <div className="grid gap-4 lg:grid-cols-3">
           {engagements.map((e) => (

@@ -1,5 +1,5 @@
 /**
- * USM4 brand — an M4 bayonet mark.
+ * USM4 brand - an M4 bayonet mark.
  * `Knife` is drawn horizontally on a 128×32 grid (point to the right).
  */
 
@@ -9,7 +9,7 @@ export function Knife({ blade = "steel", draw = false }: KnifeProps) {
   const d = draw ? "knife-draw" : undefined;
   return (
     <g className={d}>
-      {/* blade — two bevel facets */}
+      {/* blade - two bevel facets */}
       <path d="M46 11.6 H94 L124 16 H46 Z" fill={blade === "lime" ? "#d9ff7e" : "#ececf1"} />
       <path d="M46 16 H124 L103 20.4 H46 Z" fill={blade === "lime" ? "#c6ff3d" : "#a3a3ae"} />
       <path d="M50 14.6 H88" stroke={blade === "lime" ? "#5d7a12" : "#6c6c78"} strokeWidth="1.4" strokeLinecap="round" />
@@ -23,7 +23,7 @@ export function Knife({ blade = "steel", draw = false }: KnifeProps) {
       {/* cross-guard + muzzle ring */}
       <rect x="41.5" y="7.5" width="4.5" height="17" rx="1" fill="#d6d6de" />
       <circle cx="43.75" cy="4.6" r="3" fill="none" stroke="#d6d6de" strokeWidth="1.8" />
-      {/* grip — stacked leather washers */}
+      {/* grip - stacked leather washers */}
       <rect x="10" y="11.2" width="31.5" height="9.6" rx="2" fill="#2b2b33" stroke="#55555f" strokeWidth="0.8" />
       <path
         d="M14 11.6V20.4M17.5 11.6V20.4M21 11.6V20.4M24.5 11.6V20.4M28 11.6V20.4M31.5 11.6V20.4M35 11.6V20.4M38.5 11.6V20.4"
@@ -55,7 +55,7 @@ export function BayonetMark({ className = "", framed = true }: { className?: str
 }
 
 /* ──────────────────────────────────────────────────────────────
- *  Sliced wordmark — the bayonet is driven through "USM4",
+ *  Sliced wordmark - the bayonet is driven through "USM4",
  *  cutting the letters in two along the blade.
  * ────────────────────────────────────────────────────────────── */
 

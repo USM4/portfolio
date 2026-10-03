@@ -121,7 +121,7 @@ export function Nav() {
                 : "rounded-none border border-transparent"
             }`}
           >
-            <Link href="/" onClick={close} className="shrink-0" aria-label="USM4 — home">
+            <Link href="/" onClick={close} className="shrink-0" aria-label="USM4 - home">
               <Brand id="wm-nav" sub={profile.name} />
             </Link>
 

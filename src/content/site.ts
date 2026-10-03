@@ -30,14 +30,14 @@ export const hero = {
   eyebrow: "Full-stack engineer · E-commerce · DevOps",
   title: ["I build commerce", "systems. End to end."],
   lead:
-    "High-converting online stores, large-scale web platforms and the cloud infrastructure that runs them — architected, built, deployed and scaled by one engineer.",
+    "High-converting online stores, large-scale web platforms and the cloud infrastructure that runs them - architected, built, deployed and scaled by one engineer.",
 };
 
 // TODO: confirm these numbers before publishing.
 export const stats = [
   { value: "30+", label: "E-commerce stores shipped" },
   { value: "8", label: "Industries served" },
-  { value: "5", label: "Layers — storefront to cloud" },
+  { value: "5", label: "Layers - storefront to cloud" },
   { value: "24h", label: "Response time" },
 ];
 
@@ -51,7 +51,7 @@ export type Stage = {
   tech: string[];
 };
 
-/** The five stations of the 3D pipeline — in scroll order. */
+/** The five stations of the 3D pipeline - in scroll order. */
 export const stages: Stage[] = [
   {
     id: "storefront",
@@ -59,7 +59,7 @@ export const stages: Stage[] = [
     name: "Storefront",
     title: "Stores built to sell.",
     lead:
-      "Complete e-commerce stores from blank install to launch — brand, design system, catalog and every page a store needs to be trusted.",
+      "Complete e-commerce stores from blank install to launch - brand, design system, catalog and every page a store needs to be trusted.",
     points: [
       "Custom WooCommerce & Shopify storefronts",
       "Brand identity and design systems per store",
@@ -74,7 +74,7 @@ export const stages: Stage[] = [
     name: "Checkout",
     title: "Payments that clear.",
     lead:
-      "The money path, engineered properly — gateways, checkout flows, order lifecycle and the emails that follow every purchase.",
+      "The money path, engineered properly - gateways, checkout flows, order lifecycle and the emails that follow every purchase.",
     points: [
       "Payment gateway integration & checkout optimization",
       "Order lifecycle, notifications & transactional email",
@@ -89,11 +89,11 @@ export const stages: Stage[] = [
     name: "Backend",
     title: "Platforms that scale.",
     lead:
-      "Large web applications with clean architecture — multi-role platforms, real-time features and AI services, built to grow.",
+      "Large web applications with clean architecture - multi-role platforms, real-time features and AI services, built to grow.",
     points: [
       "Laravel, NestJS, Django & FastAPI backends",
       "REST APIs, WebSockets and event broadcasting",
-      "Auth, RBAC, JWT & OAuth — security first",
+      "Auth, RBAC, JWT & OAuth - security first",
       "Microservices and AI integrations (Gemini)",
     ],
     tech: ["Laravel", "NestJS", "Django", "FastAPI", "Next.js", "TypeScript"],
@@ -104,7 +104,7 @@ export const stages: Stage[] = [
     name: "Data",
     title: "Data that holds.",
     lead:
-      "Schemas designed around how the business actually works — so the app stays fast and correct as it grows.",
+      "Schemas designed around how the business actually works - so the app stays fast and correct as it grows.",
     points: [
       "PostgreSQL schema design & migrations",
       "Multi-vendor and multi-tenant data models",
@@ -119,7 +119,7 @@ export const stages: Stage[] = [
     name: "Cloud",
     title: "Infrastructure that stays up.",
     lead:
-      "Containerized, secured and automated — I deploy and run what I build, and move live production sites without losing a byte.",
+      "Containerized, secured and automated - I deploy and run what I build, and move live production sites without losing a byte.",
     points: [
       "Docker & Docker Compose environments",
       "NGINX, TLS, Linux VPS hardening & operations",
@@ -153,28 +153,28 @@ export const caseStudies: CaseStudy[] = [
     visibility: "Client work · anonymized",
     size: "xl",
     summary:
-      "A fleet of independent, fully-branded online stores — all running on one reusable commerce system I designed.",
+      "A fleet of independent, fully-branded online stores - all running on one reusable commerce system I designed.",
     challenge:
-      "Launch many separate stores fast. Each needs its own brand and identity, but the same reliable catalog, checkout and compliance layer — without copy-paste drift.",
+      "Launch many separate stores fast. Each needs its own brand and identity, but the same reliable catalog, checkout and compliance layer - without copy-paste drift.",
     work: [
       "Architected a reusable WooCommerce store system: shared category tree, product schema and page structure.",
-      "Designed a distinct brand identity per store — logo direction, palette, homepage and design system.",
+      "Designed a distinct brand identity per store - logo direction, palette, homepage and design system.",
       "Built an 11-page legal & trust suite (shipping, returns, warranty, billing, privacy, security…) restyled per brand.",
       "Automated catalog creation with an AI ingestion pipeline producing import-ready product data.",
       "Shipped every store Google Shopping-ready at launch.",
     ],
     outcome:
-      "New branded stores go from blank server to launch-ready on a tested system — consistent quality, fraction of the time.",
+      "New branded stores go from blank server to launch-ready on a tested system - consistent quality, fraction of the time.",
     stack: ["WooCommerce", "WordPress", "Elementor", "Python", "Gemini AI", "Merchant Center"],
   },
   {
     slug: "wholesale-hub",
-    title: "Wholesale Hub — B2B Marketplace",
+    title: "Wholesale Hub - B2B Marketplace",
     kind: "Platform",
     visibility: "Product build",
     size: "lg",
     summary:
-      "A two-sided B2B platform connecting store owners with wholesalers — Shopify sync, tiered pricing and real-time orders.",
+      "A two-sided B2B platform connecting store owners with wholesalers - Shopify sync, tiered pricing and real-time orders.",
     challenge:
       "Store owners and wholesalers need separate experiences on one platform, live catalog sync from Shopify and wholesale-specific pricing.",
     work: [
@@ -185,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
       "PostgreSQL model for multi-vendor catalogs, collection visibility and pricing tiers.",
       "Orchestrated Laravel, Next.js, PostgreSQL and Redis with Docker Compose.",
     ],
-    outcome: "A complete B2B ordering flow — from connecting a Shopify store to placing tiered wholesale orders.",
+    outcome: "A complete B2B ordering flow - from connecting a Shopify store to placing tiered wholesale orders.",
     stack: ["Laravel", "Next.js", "PostgreSQL", "Redis", "Shopify API", "WebSockets", "Docker"],
   },
   {
@@ -195,7 +195,7 @@ export const caseStudies: CaseStudy[] = [
     visibility: "Client project",
     size: "lg",
     summary:
-      "A custom operations platform for a dental laboratory — cases, work types, staff roles and invoicing in one system.",
+      "A custom operations platform for a dental laboratory - cases, work types, staff roles and invoicing in one system.",
     challenge:
       "The lab's workflow didn't fit any off-the-shelf software. It needed a purpose-built platform with a data model that mirrors the real order lifecycle.",
     work: [
@@ -203,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
       "Designed and audited the schema: role model, order ↔ work-type relations, invoice financials.",
       "Structured the domain around the lab's real case lifecycle so new modules plug in cleanly.",
     ],
-    outcome: "A purpose-built system the business runs on — modelled on how the lab actually works.",
+    outcome: "A purpose-built system the business runs on - modelled on how the lab actually works.",
     stack: ["Laravel", "PostgreSQL", "Next.js", "Docker"],
   },
   {
@@ -213,9 +213,9 @@ export const caseStudies: CaseStudy[] = [
     visibility: "Client & personal work",
     size: "md",
     summary:
-      "Containerized hosting stacks and live VPS operations — TLS, isolation, automation and production migrations.",
+      "Containerized hosting stacks and live VPS operations - TLS, isolation, automation and production migrations.",
     challenge:
-      "Run commerce sites on infrastructure that is secure, reproducible and movable — and migrate live stores between hosts without data loss.",
+      "Run commerce sites on infrastructure that is secure, reproducible and movable - and migrate live stores between hosts without data loss.",
     work: [
       "Built a hardened container stack from scratch: NGINX (TLS), PHP-FPM and MariaDB in isolated networks with persistent volumes.",
       "Migrated live production stores across Hostinger, Plesk and HestiaCP VPS environments over SSH / rsync.",
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
     kind: "Real-time",
     visibility: "1337 / 42 Network",
     size: "md",
-    summary: "A full-stack multiplayer game platform — live gameplay, social graph, notifications and OAuth.",
+    summary: "A full-stack multiplayer game platform - live gameplay, social graph, notifications and OAuth.",
     challenge: "Real-time gameplay and social features in one SPA, containerized for deployment.",
     work: [
       "React SPA with a Django REST Framework backend.",
@@ -245,7 +245,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "brand-guard",
-    title: "Brand Guard — AI Compliance Engine",
+    title: "Brand Guard - AI Compliance Engine",
     kind: "AI",
     visibility: "Product build",
     size: "md",
@@ -278,15 +278,15 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "music-room",
-    title: "Music Room — Mobile Collaboration App",
+    title: "Music Room - Mobile Collaboration App",
     kind: "Mobile",
     visibility: "In progress · team of 3",
     size: "md",
-    summary: "A mobile app for collaborative music — track voting, playback delegation and shared playlists.",
+    summary: "A mobile app for collaborative music - track voting, playback delegation and shared playlists.",
     challenge: "Real-time collaborative features across mobile clients with secure identity and paid tiers.",
     work: [
-      "Owner of Identity & Access — authentication and authorization across backend and mobile.",
-      "Owner of the subscription system — backend and mobile.",
+      "Owner of Identity & Access - authentication and authorization across backend and mobile.",
+      "Owner of the subscription system - backend and mobile.",
       "Team scope covers all three services: Track Vote, Control Delegation, Playlist Editor.",
     ],
     outcome: "In active development.",
@@ -321,34 +321,34 @@ export const stack = [
 
 export const process = [
   { step: "01", title: "Architect", text: "Map the business flow, define the system and agree on milestones." },
-  { step: "02", title: "Build", text: "Short cycles with working previews — you see progress, not promises." },
+  { step: "02", title: "Build", text: "Short cycles with working previews - you see progress, not promises." },
   { step: "03", title: "Ship", text: "Tested end to end, deployed on solid infrastructure, documented." },
   { step: "04", title: "Scale", text: "Monitoring, improvements and support after launch." },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm Oussama — a full-stack engineer from Morocco who builds the entire commerce stack: the store customers see, the platform behind it, and the servers it runs on.",
-    "I trained at 1337 (42 Network), the peer-to-peer engineering school, building servers, real-time platforms and container infrastructure from scratch in C, C++, Python and JavaScript — after a DUT in Computer Engineering.",
+    "I'm Oussama - a full-stack engineer from Morocco who builds the entire commerce stack: the store customers see, the platform behind it, and the servers it runs on.",
+    "I trained at 1337 (42 Network), the peer-to-peer engineering school, building servers, real-time platforms and container infrastructure from scratch in C, C++, Python and JavaScript - after a DUT in Computer Engineering.",
     "Today I put that engineering depth into client work: stores that look premium and convert, platforms with clean architecture, and infrastructure that doesn't wake anyone up at night.",
   ],
   education: [
-    { school: "1337 Coding School — 42 Network", detail: "Software Engineering · 2022 – present" },
-    { school: "EST Berrechid", detail: "DUT — Computer Engineering" },
+    { school: "1337 Coding School - 42 Network", detail: "Software Engineering · 2022 – present" },
+    { school: "EST Berrechid", detail: "DUT - Computer Engineering" },
   ],
   languages: ["Arabic", "French", "English"], // TODO: confirm
 };
 
 export const brand = {
   handle: "USM4",
-  story: "USM4 — named after the M4 bayonet: sharp, reliable, built for the field.",
+  story: "USM4 - named after the M4 bayonet: sharp, reliable, built for the field.",
 };
 
 export const principles = [
-  { icon: "layers", title: "End-to-end ownership", text: "One engineer from storefront to server — no hand-off gaps, no finger-pointing between freelancers." },
-  { icon: "shield", title: "Secure by default", text: "Auth, roles, validated input, TLS and hardened servers are part of the build — not an afterthought." },
+  { icon: "layers", title: "End-to-end ownership", text: "One engineer from storefront to server - no hand-off gaps, no finger-pointing between freelancers." },
+  { icon: "shield", title: "Secure by default", text: "Auth, roles, validated input, TLS and hardened servers are part of the build - not an afterthought." },
   { icon: "boxes", title: "Containerized & reproducible", text: "Every environment runs in Docker. Deploys are predictable, rollbacks are easy, onboarding is instant." },
-  { icon: "gauge", title: "Built for performance", text: "Fast pages, cached data and optimized queries — because speed is conversion." },
+  { icon: "gauge", title: "Built for performance", text: "Fast pages, cached data and optimized queries - because speed is conversion." },
   { icon: "workflow", title: "Clean architecture", text: "Modular code and typed APIs your next developer will thank you for." },
   { icon: "messages", title: "Transparent delivery", text: "Clear milestones, regular progress reports and documentation at handover." },
 ] as const;
@@ -398,7 +398,7 @@ export class AuthController {
   @UseGuards(RefreshTokenGuard)
   @Post('refresh')
   refresh(@CurrentUser() user: JwtPayload): Promise<TokenPair> {
-    // rotate refresh tokens — a reused token revokes the whole family
+    // rotate refresh tokens - a reused token revokes the whole family
     return this.auth.rotate(user.sub, user.refreshId);
   }
 }`,

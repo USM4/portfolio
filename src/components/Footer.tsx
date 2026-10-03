@@ -42,7 +42,7 @@ export function Footer() {
             <Brand id="wm-foot" sub={profile.name} />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">{brand.story}</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              Commerce stores, web platforms and cloud infrastructure — engineered end to end from {profile.location}.
+              Commerce stores, web platforms and cloud infrastructure - engineered end to end from {profile.location}.
             </p>
           </div>
           {cols.map((c) => (
