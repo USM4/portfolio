@@ -2,15 +2,28 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, Briefcase, Copy, CornerDownLeft, ExternalLink, FileDown, Hash, Rocket, Search } from "lucide-react";
+import { ArrowRight, Briefcase, Copy, CornerDownLeft, ExternalLink, FileDown, Globe, Hash, Rocket, Search } from "lucide-react";
 import { links, profile } from "@/content/site";
 import { navItems, runTerminal } from "@/lib/nav";
-import { primaryHire, whatsappHref } from "./ui";
+import { hireHref, whatsappHref } from "./ui";
+import { localeNames, locales, lp, splitPath, type Locale } from "@/i18n/config";
+import type { Dict } from "@/i18n";
 import { BayonetMark } from "./Logo";
 
 type Item = { group: string; label: string; hint?: string; icon: React.ComponentType<{ className?: string }>; run: () => void };
 
-export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function CommandMenu({
+  lang,
+  t,
+  open,
+  onClose,
+}: {
+  lang: Locale;
+  t: Pick<Dict, "nav" | "hire" | "cmd">;
+  open: boolean;
+  onClose: () => void;
+}) {
+  const c = t.cmd;
   const router = useRouter();
   const pathname = usePathname();
   const [q, setQ] = useState("");
@@ -20,37 +33,40 @@ export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => v
   const list = useRef<HTMLUListElement>(null);
 
   const items: Item[] = useMemo(() => {
+    const { rest } = splitPath(pathname);
+    const home = rest === "/";
+    const homeHref = lp(lang, "/");
     const go = (id: string) => () => {
-      if (pathname === "/") document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      else router.push(`/#${id}`);
+      if (home) document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      else router.push(`${homeHref}#${id}`);
     };
     const ext = (href: string) => () => window.open(href, href.startsWith("http") ? "_blank" : "_self", "noopener");
     const out: Item[] = [
-      { group: "Navigate", label: "Home", hint: "top", icon: Hash, run: go("top") },
-      ...navItems.map((n) => ({ group: "Navigate", label: n.label, hint: `#${n.id}`, icon: Hash, run: go(n.id) })),
-      { group: "Navigate", label: "Contact", hint: "#contact", icon: Hash, run: go("contact") },
-      { group: "Actions", label: "Hire me", hint: links.upwork ? "Upwork" : "email", icon: Briefcase, run: ext(primaryHire.href) },
+      { group: c.navigate, label: c.home, hint: "top", icon: Hash, run: go("top") },
+      ...navItems.map((n) => ({ group: c.navigate, label: t.nav.items[n.id], hint: `#${n.id}`, icon: Hash, run: go(n.id) })),
+      { group: c.navigate, label: c.contact, hint: "#contact", icon: Hash, run: go("contact") },
+      { group: c.actions, label: c.hire, hint: links.upwork ? "Upwork" : "email", icon: Briefcase, run: ext(hireHref) },
       {
-        group: "Actions",
-        label: "Copy email address",
+        group: c.actions,
+        label: c.copyEmail,
         hint: profile.email,
         icon: Copy,
         run: () => {
           navigator.clipboard?.writeText(profile.email).then(
-            () => setToast("Email copied"),
+            () => setToast(c.copied),
             () => setToast(profile.email),
           );
         },
       },
-      { group: "Actions", label: "Message on WhatsApp", hint: `+${profile.whatsapp}`, icon: ExternalLink, run: ext(whatsappHref) },
-      { group: "Actions", label: "Download résumé", hint: "PDF", icon: FileDown, run: ext(profile.resume) },
+      { group: c.actions, label: c.whatsapp, hint: `+${profile.whatsapp}`, icon: ExternalLink, run: ext(whatsappHref) },
+      { group: c.actions, label: c.resume, hint: "PDF", icon: FileDown, run: ext(profile.resume) },
       {
-        group: "Actions",
-        label: "Run deploy in the console",
-        hint: "easter egg",
+        group: c.actions,
+        label: c.deploy,
+        hint: c.deployHint,
         icon: Rocket,
         run: () => {
-          if (pathname !== "/") return router.push("/#console");
+          if (!home) return router.push(`${homeHref}#console`);
           document.getElementById("console")?.scrollIntoView({ behavior: "smooth" });
           setTimeout(() => runTerminal("deploy"), 700);
         },
@@ -64,10 +80,13 @@ export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => v
         ] as const
       )
         .filter(([, h]) => h)
-        .map(([label, href]) => ({ group: "Links", label, hint: "↗", icon: ArrowRight, run: ext(href) })),
+        .map(([label, href]) => ({ group: c.links, label, hint: "↗", icon: ArrowRight, run: ext(href) })),
+      ...locales
+        .filter((l) => l !== lang)
+        .map((l) => ({ group: c.language, label: localeNames[l], hint: l.toUpperCase(), icon: Globe, run: () => router.push(lp(l, rest)) })),
     ];
     return out;
-  }, [pathname, router]);
+  }, [pathname, router, lang, c, t.nav.items]);
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -130,14 +149,14 @@ export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => v
                     exec(filtered[sel]);
                   } else if (e.key === "Escape") onClose();
                 }}
-                placeholder="Search sections, actions, links…"
+                placeholder={c.placeholder}
                 className="h-14 flex-1 bg-transparent text-[15px] text-fg outline-none placeholder:text-faint"
                 aria-label="Search commands"
               />
               <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-faint">ESC</kbd>
             </div>
             <ul ref={list} className="max-h-[52vh] overflow-y-auto p-2">
-              {filtered.length === 0 && <li className="px-3 py-8 text-center text-sm text-muted">No results for “{q}”.</li>}
+              {filtered.length === 0 && <li className="px-3 py-8 text-center text-sm text-muted">{c.noResults} “{q}”.</li>}
               {filtered.map((i, n) => {
                 const header = i.group !== lastGroup ? i.group : null;
                 lastGroup = i.group;
@@ -174,7 +193,7 @@ export function CommandMenu({ open, onClose }: { open: boolean; onClose: () => v
               <span className="flex items-center gap-2">
                 <BayonetMark className="h-4 w-4" framed={false} /> USM4
               </span>
-              <span>↑↓ navigate · ↵ select · esc close</span>
+              <span>{c.help}</span>
             </div>
           </div>
         </div>

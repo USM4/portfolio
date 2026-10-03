@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { stages } from "@/content/site";
 import { readStage } from "@/lib/stage";
 
 /** Game-style progress HUD for the 3D pipeline (desktop). */
-export function Hud() {
+export function Hud({ title, stages }: { title: string; stages: { id: string; code: string; name: string }[] }) {
   const [s, setS] = useState(-1);
   useEffect(() => {
     let raf = 0;
@@ -20,13 +19,13 @@ export function Hud() {
   const active = Math.round(s);
   return (
     <aside
-      className={`fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 transition-opacity duration-500 lg:block ${
+      className={`fixed end-6 top-1/2 z-40 hidden -translate-y-1/2 transition-opacity duration-500 lg:block ${
         visible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
       aria-label="Pipeline progress"
     >
       <div className="relative flex flex-col gap-5 rounded-lg border border-line bg-bg/60 px-4 py-5 backdrop-blur-md">
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">Pipeline</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">{title}</span>
         {stages.map((st, i) => (
           <a key={st.id} href={`#${st.id}`} className="group flex items-center gap-3">
             <span
@@ -47,7 +46,7 @@ export function Hud() {
             </span>
           </a>
         ))}
-        <div className="mt-1 h-px w-full bg-line">
+        <div className="mt-1 flex h-px w-full bg-line">
           <div
             className="h-px bg-accent transition-[width] duration-200"
             style={{ width: `${Math.max(0, Math.min(1, (s + 0.5) / 5)) * 100}%` }}

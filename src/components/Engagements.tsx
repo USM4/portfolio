@@ -1,23 +1,24 @@
 import { Check } from "lucide-react";
-import { engagements } from "@/content/site";
-import { Button, Container, SectionHead, primaryHire } from "./ui";
+import type { Dict } from "@/i18n";
+import { Button, Container, SectionHead, hireLink } from "./ui";
 
-export function Engagements() {
+export function Engagements({ t }: { t: Dict }) {
+  const hire = hireLink(t);
   return (
     <section id="engage" className="relative border-t border-line bg-bg/92 py-24 backdrop-blur-2xl md:py-32">
       <Container>
         <SectionHead
           index="05"
-          label="Work with me"
+          label={t.engage.label}
           title={
             <>
-              Three ways to start. <span className="text-muted">One standard.</span>
+              {t.engage.title} <span className="text-muted">{t.engage.titleMuted}</span>
             </>
           }
-          lead="Fixed-scope projects or ongoing partnership - available on Upwork, Fiverr or directly."
+          lead={t.engage.lead}
         />
         <div className="grid gap-4 lg:grid-cols-3">
-          {engagements.map((e) => (
+          {t.engage.items.map((e) => (
             <article
               key={e.name}
               className={`reveal relative flex flex-col overflow-hidden rounded-2xl border p-8 ${
@@ -27,8 +28,8 @@ export function Engagements() {
               }`}
             >
               {e.highlight && (
-                <span className="absolute right-6 top-6 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                  ● Ongoing
+                <span className="absolute end-6 top-6 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                  ● {t.engage.ongoing}
                 </span>
               )}
               <h3 className="text-2xl font-semibold tracking-tight">{e.name}</h3>
@@ -41,7 +42,7 @@ export function Engagements() {
                   </li>
                 ))}
               </ul>
-              <Button href={primaryHire.href} external variant={e.highlight ? "primary" : "ghost"} className="mt-8 w-full">
+              <Button href={hire.href} external variant={e.highlight ? "primary" : "ghost"} className="mt-8 w-full">
                 {e.cta}
               </Button>
             </article>

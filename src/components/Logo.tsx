@@ -137,14 +137,16 @@ export function Wordmark({
 }
 
 /** Nav / footer lockup: sliced wordmark + name. */
-export function Brand({ id, sub }: { id: string; sub?: string }) {
+export function Brand({ id, sub, role = "Engineer" }: { id: string; sub?: string; role?: string }) {
   return (
     <span className="group/brand flex items-center gap-3.5">
-      <Wordmark id={id} className="h-9 w-auto" animate />
+      <span dir="ltr" className="flex">
+        <Wordmark id={id} className="h-9 w-auto" animate />
+      </span>
       {sub && (
-        <span className="hidden border-l border-line pl-3.5 leading-tight sm:block">
+        <span className="hidden border-s border-line ps-3.5 leading-tight sm:block">
           <span className="block text-[12px] font-medium text-fg/90">{sub}</span>
-          <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-faint">Engineer</span>
+          <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-faint">{role}</span>
         </span>
       )}
     </span>

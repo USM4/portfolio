@@ -1,9 +1,15 @@
 import Link from "next/link";
 import { links, profile } from "@/content/site";
 
-export const primaryHire = links.upwork
-  ? { href: links.upwork, label: "Hire me on Upwork", external: true }
-  : { href: `mailto:${profile.email}`, label: "Start a project", external: true };
+/** Main call-to-action: Upwork when set, email otherwise. */
+export function hireLink(t: { hire: { upwork: string; start: string } }) {
+  return links.upwork
+    ? { href: links.upwork, label: t.hire.upwork }
+    : { href: `mailto:${profile.email}`, label: t.hire.start };
+}
+
+/** Kept for client components that only need the href. */
+export const hireHref = links.upwork || `mailto:${profile.email}`;
 
 export const whatsappHref = `https://wa.me/${profile.whatsapp}`;
 
@@ -64,7 +70,7 @@ export function Button({ href, children, variant = "primary", external, classNam
   const inner = (
     <>
       {children}
-      <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">
+      <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5 rtl:-scale-x-100 rtl:group-hover:-translate-x-0.5">
         →
       </span>
     </>

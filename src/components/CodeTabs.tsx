@@ -5,7 +5,7 @@ import { Check, Copy } from "lucide-react";
 
 type Sample = { id: string; tab: string; tech: string; html: string; code: string; lines: number };
 
-export function CodeTabs({ samples }: { samples: Sample[] }) {
+export function CodeTabs({ samples, labels }: { samples: Sample[]; labels: { copy: string; copied: string } }) {
   const [active, setActive] = useState(0);
   const [copied, setCopied] = useState(false);
   const s = samples[active];
@@ -21,7 +21,7 @@ export function CodeTabs({ samples }: { samples: Sample[] }) {
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-line-strong bg-[#0a0a0d]/95 shadow-[0_50px_140px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(198,255,61,0.04)]">
+    <div dir="ltr" className="overflow-hidden rounded-2xl border border-line-strong bg-[#0a0a0d]/95 shadow-[0_50px_140px_-40px_rgba(0,0,0,0.9),0_0_0_1px_rgba(198,255,61,0.04)]">
       <div className="flex items-center justify-between gap-4 border-b border-line pl-2 pr-3">
         <div role="tablist" className="flex min-w-0 overflow-x-auto [scrollbar-width:none]">
           {samples.map((t, i) => (
@@ -45,7 +45,7 @@ export function CodeTabs({ samples }: { samples: Sample[] }) {
           className="flex shrink-0 items-center gap-1.5 rounded-md border border-line px-2.5 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent/50 hover:text-accent"
         >
           {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-          {copied ? "Copied" : "Copy"}
+          {copied ? labels.copied : labels.copy}
         </button>
       </div>
       <div className="relative flex max-h-[34rem] overflow-auto py-5 text-[12.5px] leading-[1.7] sm:text-[13px]">

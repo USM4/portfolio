@@ -1,30 +1,35 @@
 import { brand, links, profile } from "@/content/site";
+import type { Dict } from "@/i18n";
+import { lp, type Locale } from "@/i18n/config";
 import { Brand, Wordmark } from "./Logo";
 import { Container } from "./ui";
 
-export function Footer() {
+export function Footer({ t, lang }: { t: Dict; lang: Locale }) {
+  const h = lp(lang, "/");
+  const n = t.nav.items;
+  const sv = t.footer.servicesItems;
   const cols = [
     {
-      title: "Navigate",
+      title: t.footer.navigate,
       items: [
-        ["Pipeline", "/#pipeline"],
-        ["Work", "/#work"],
-        ["Code", "/#code"],
-        ["Console", "/#console"],
-        ["About", "/#about"],
+        [n.pipeline, `${h}#pipeline`],
+        [n.work, `${h}#work`],
+        [n.code, `${h}#code`],
+        [n.console, `${h}#console`],
+        [n.about, `${h}#about`],
       ],
     },
     {
-      title: "Services",
+      title: t.footer.services,
       items: [
-        ["E-commerce stores", "/#storefront"],
-        ["Web platforms", "/#backend"],
-        ["DevOps & cloud", "/#cloud"],
-        ["Rescue & audit", "/#engage"],
+        [sv[0], `${h}#storefront`],
+        [sv[1], `${h}#backend`],
+        [sv[2], `${h}#cloud`],
+        [sv[3], `${h}#engage`],
       ],
     },
     {
-      title: "Connect",
+      title: t.footer.connect,
       items: [
         ["Upwork", links.upwork],
         ["Fiverr", links.fiverr],
@@ -39,11 +44,9 @@ export function Footer() {
       <Container className="pt-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Brand id="wm-foot" sub={profile.name} />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">{brand.story}</p>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              Commerce stores, web platforms and cloud infrastructure - engineered end to end from {profile.location}.
-            </p>
+            <Brand id="wm-foot" sub={profile.name} role={t.nav.engineer} />
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">{t.footer.story}</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">{t.footer.tagline}</p>
           </div>
           {cols.map((c) => (
             <div key={c.title} className="md:col-span-2">
@@ -68,7 +71,7 @@ export function Footer() {
       </Container>
 
       <div className="relative mt-20 select-none" aria-hidden>
-        <div className="mx-auto max-w-6xl px-5 pb-6 sm:px-8">
+        <div className="mx-auto max-w-6xl px-5 pb-6 sm:px-8" dir="ltr">
           <Wordmark id="wm-giant" tone="ghost" className="h-auto w-full drop-shadow-[0_0_60px_rgba(198,255,61,0.12)]" />
         </div>
       </div>
@@ -77,7 +80,7 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {profile.name} · {brand.handle}
         </p>
-        <p className="font-mono">Built with Next.js · Three.js · TypeScript</p>
+        <p className="font-mono">{t.footer.builtWith}</p>
       </Container>
     </footer>
   );

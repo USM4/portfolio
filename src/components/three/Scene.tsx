@@ -25,11 +25,11 @@ const live = { stage: -1 };
 
 /* ───────────────────────── camera rig ───────────────────────── */
 
-function keyframe(s: number, mobile: boolean): [THREE.Vector3, THREE.Vector3] {
+function keyframe(s: number, mobile: boolean, k = 1): [THREE.Vector3, THREE.Vector3] {
   if (s <= -1)
     return mobile
       ? [new THREE.Vector3(0, 10, 34), new THREE.Vector3(0, -3, -2)]
-      : [new THREE.Vector3(-9, 7.5, 20), new THREE.Vector3(-5, -1.5, -2)];
+      : [new THREE.Vector3(-9 * k, 7.5, 20), new THREE.Vector3(-5 * k, -1.5, -2)];
   if (s >= 5)
     return mobile
       ? [new THREE.Vector3(0, 22, 30), new THREE.Vector3(0, -2, -2)]
@@ -37,10 +37,11 @@ function keyframe(s: number, mobile: boolean): [THREE.Vector3, THREE.Vector3] {
   const [x, y, z] = P[s];
   return mobile
     ? [new THREE.Vector3(x, y + 1.6, z + 10), new THREE.Vector3(x, y - 1.6, z)]
-    : [new THREE.Vector3(x - 2.4, y + 1.5, z + 9.2), new THREE.Vector3(x - 3.0, y, z)];
+    : [new THREE.Vector3(x - 2.4 * k, y + 1.5, z + 9.2), new THREE.Vector3(x - 3.0 * k, y, z)];
 }
 
-function CameraRig() {
+/** k = 1 for LTR layouts (content left, objects right), -1 mirrors for RTL. */
+function CameraRig({ mirror = 1 }: { mirror?: number }) {
   const { camera, size, pointer } = useThree();
   const look = useRef(new THREE.Vector3(-5, -1.5, -2));
   const target = useRef({ pos: new THREE.Vector3(), look: new THREE.Vector3() });
@@ -52,8 +53,8 @@ function CameraRig() {
     const a = Math.floor(s),
       b = Math.ceil(s),
       f = s - a;
-    const [pa, la] = keyframe(a, mobile);
-    const [pb, lb] = keyframe(b, mobile);
+    const [pa, la] = keyframe(a, mobile, mirror);
+    const [pb, lb] = keyframe(b, mobile, mirror);
     const { pos, look: tl } = target.current;
     pos.copy(pa).lerp(pb, f);
     tl.copy(la).lerp(lb, f);
@@ -335,7 +336,7 @@ function Traffic() {
 
 /* ───────────────────────── canvas ───────────────────────── */
 
-export default function Scene() {
+export default function Scene({ rtl = false }: { rtl?: boolean }) {
   return (
     <Canvas
       dpr={[1, 1.75]}
@@ -366,7 +367,7 @@ export default function Scene() {
       <Backend />
       <Data />
       <Cloud />
-      <CameraRig />
+      <CameraRig mirror={rtl ? -1 : 1} />
       <EffectComposer multisampling={0}>
         <Bloom mipmapBlur intensity={1.15} luminanceThreshold={0.6} luminanceSmoothing={0.2} />
         <Vignette eskil={false} offset={0.2} darkness={0.85} />

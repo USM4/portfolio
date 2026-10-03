@@ -2,11 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { profile, links } from "@/content/site";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { Intro } from "@/components/Intro";
 import { Slash } from "@/components/Slash";
+import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
+import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
+import "@fontsource/ibm-plex-sans-arabic/arabic-700.css";
 import "./globals.css";
 
 
@@ -61,9 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Intro />
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        {children}
         <Reveal />
         <Slash />
       </body>

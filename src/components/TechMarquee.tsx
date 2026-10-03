@@ -25,7 +25,7 @@ export function TechMarquee() {
     </ul>
   );
   return (
-    <section aria-label="Technologies" className="relative border-y border-line bg-bg/80 py-7 backdrop-blur-md">
+    <section dir="ltr" aria-label="Technologies" className="relative border-y border-line bg-bg/80 py-7 backdrop-blur-md">
       <div className="marquee flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
         {row(false)}
         {row(true)}

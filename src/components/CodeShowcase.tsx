@@ -1,9 +1,10 @@
 import { codeSamples } from "@/content/site";
+import type { Dict } from "@/i18n";
 import { highlight } from "@/lib/highlight";
 import { CodeTabs } from "./CodeTabs";
 import { Container, Label } from "./ui";
 
-export async function CodeShowcase() {
+export async function CodeShowcase({ t }: { t: Dict }) {
   const samples = await Promise.all(
     codeSamples.map(async (s) => ({ ...s, html: await highlight(s.code, s.lang), lines: s.code.split("\n").length })),
   );
@@ -14,24 +15,22 @@ export async function CodeShowcase() {
         <div className="grid items-start gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
             <Label>
-              <span className="text-accent">04</span> / Code
+              <span className="text-accent">04</span> / {t.code.label}
             </Label>
             <h2 className="mt-6 text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl">
-              Code that reads <span className="text-muted">like documentation.</span>
+              {t.code.title} <span className="text-muted">{t.code.titleMuted}</span>
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-fg/70 sm:text-lg">
-              Typed, modular and secure. The same standards across NestJS, Laravel, Docker and WooCommerce - so your
-              project stays easy to extend long after launch.
-            </p>
+            <p className="mt-5 text-base leading-relaxed text-fg/70 sm:text-lg">{t.code.lead}</p>
             <ul className="mt-8 space-y-3 font-mono text-[13px] text-muted">
-              <li><span className="text-accent">✓</span> Transactions & validation at the boundary</li>
-              <li><span className="text-accent">✓</span> Token rotation & guard-based auth</li>
-              <li><span className="text-accent">✓</span> Isolated networks, read-only mounts</li>
-              <li><span className="text-accent">✓</span> Hooks over hacks - no core edits</li>
+              {t.code.points.map((p) => (
+                <li key={p}>
+                  <span className="text-accent">✓</span> {p}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="min-w-0 lg:col-span-8">
-            <CodeTabs samples={samples} />
+            <CodeTabs samples={samples} labels={{ copy: t.code.copy, copied: t.code.copied }} />
           </div>
         </div>
       </Container>

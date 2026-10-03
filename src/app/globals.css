@@ -13,8 +13,8 @@
   --color-accent-ink: #0b0d02;
   --color-ok: #6ee7a8;
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-geist-sans), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "IBM Plex Sans Arabic", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html {
@@ -168,3 +168,20 @@ a:hover .wordmark .wm-glint, .wordmark:hover .wm-glint { animation: wmGlint 0.7s
   45% { scale: 1 1; opacity: 1; }
   100% { scale: 1.15 1; translate: 10px -6px; opacity: 0; }
 }
+
+/* ── Arabic / RTL ── */
+[lang="ar"] {
+  font-family: "IBM Plex Sans Arabic", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+/* letter-spacing breaks Arabic letter joining */
+[lang="ar"] *:not([dir="ltr"]):not([dir="ltr"] *) {
+  letter-spacing: 0 !important;
+}
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3 {
+  line-height: 1.25;
+}
+
+/* Geist Mono has no Arabic glyphs: fall back to Plex Arabic before system monos */
+[lang="ar"] .font-mono { font-family: GeistMono, "IBM Plex Sans Arabic", ui-monospace, monospace; }
