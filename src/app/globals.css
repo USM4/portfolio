@@ -185,3 +185,7 @@ a:hover .wordmark .wm-glint, .wordmark:hover .wm-glint { animation: wmGlint 0.7s
 
 /* Geist Mono has no Arabic glyphs: fall back to Plex Arabic before system monos */
 [lang="ar"] .font-mono { font-family: GeistMono, "IBM Plex Sans Arabic", ui-monospace, monospace; }
+
+/* Calendly: we draw our own loader */
+.calendly-box .calendly-spinner { display: none; }
+.calendly-box iframe { display: block; width: 100%; height: 100%; }

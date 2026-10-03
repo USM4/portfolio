@@ -3,6 +3,7 @@ import { isRtl, type Locale } from "@/i18n/config";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { HtmlLang } from "./HtmlLang";
+import { BookingDialog } from "./BookingDialog";
 
 /** Per-language frame: sets lang/dir, renders the localized nav and footer. */
 export function Shell({ lang, children }: { lang: Locale; children: React.ReactNode }) {
@@ -19,6 +20,7 @@ export function Shell({ lang, children }: { lang: Locale; children: React.ReactN
       <Nav lang={lang} t={{ nav: t.nav, hire: t.hire, cmd: t.cmd }} />
       <main>{children}</main>
       <Footer t={t} lang={lang} />
+      <BookingDialog t={t.hire} />
     </div>
   );
 }

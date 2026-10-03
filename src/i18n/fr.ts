@@ -6,7 +6,7 @@ export const fr: Translation = {
     description:
       "Je construis des systèmes e-commerce de bout en bout : boutiques WooCommerce et Shopify, grandes plateformes web avec Laravel, NestJS et Next.js, et infrastructure cloud basée sur Docker.",
   },
-  hire: { upwork: "Me recruter sur Upwork", start: "Lancer un projet", short: "Me recruter", book: "Réserver un appel gratuit", bookShort: "Réserver un appel", bookTitle: "Réservez un appel de 30 minutes", bookLead: "Choisissez le créneau qui vous convient. Gratuit et sans engagement : on passe votre projet en revue et je vous explique comment je le construirais.", bookLoading: "Chargement du calendrier…", bookOpen: "Ouvrir Calendly" },
+  hire: { upwork: "Me recruter sur Upwork", start: "Lancer un projet", short: "Me recruter", book: "Réserver un appel gratuit", bookShort: "Réserver un appel", bookTitle: "Réservez un appel de 30 minutes", bookLead: "Choisissez le créneau qui vous convient. Gratuit et sans engagement : on passe votre projet en revue et je vous explique comment je le construirais.", bookLoading: "Chargement du calendrier…", bookOpen: "Ouvrir Calendly", bookClose: "Fermer" },
   hero: {
     eyebrow: "Ingénieur full-stack · E-commerce · DevOps",
     title: ["Je construis des systèmes", "e-commerce. De bout en bout."],

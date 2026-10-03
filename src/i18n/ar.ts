@@ -6,7 +6,7 @@ export const ar: Translation = {
     description:
       "أبني أنظمة التجارة الإلكترونية من البداية إلى النهاية: متاجر WooCommerce و Shopify، ومنصات ويب كبيرة باستخدام Laravel و NestJS و Next.js، وبنية سحابية تعتمد على Docker.",
   },
-  hire: { upwork: "وظّفني على Upwork", start: "ابدأ مشروعك", short: "وظّفني", book: "احجز مكالمة مجانية", bookShort: "احجز مكالمة", bookTitle: "احجز مكالمة لمدة 30 دقيقة", bookLead: "اختر الموعد الذي يناسبك. مجانًا وبدون أي التزام: نراجع مشروعك معًا وأشرح لك كيف سأبنيه.", bookLoading: "جارٍ تحميل التقويم…", bookOpen: "افتح Calendly" },
+  hire: { upwork: "وظّفني على Upwork", start: "ابدأ مشروعك", short: "وظّفني", book: "احجز مكالمة مجانية", bookShort: "احجز مكالمة", bookTitle: "احجز مكالمة لمدة 30 دقيقة", bookLead: "اختر الموعد الذي يناسبك. مجانًا وبدون أي التزام: نراجع مشروعك معًا وأشرح لك كيف سأبنيه.", bookLoading: "جارٍ تحميل التقويم…", bookOpen: "افتح Calendly", bookClose: "إغلاق" },
   hero: {
     eyebrow: "مهندس فول ستاك · تجارة إلكترونية · DevOps",
     title: ["أبني أنظمة التجارة", "الإلكترونية. من الألف إلى الياء."],

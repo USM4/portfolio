@@ -1,7 +1,6 @@
 import { links } from "@/content/site";
 
 type CalendlyApi = {
-  initPopupWidget: (o: { url: string }) => void;
   initInlineWidget: (o: { url: string; parentElement: HTMLElement; resize?: boolean }) => void;
 };
 declare global {
@@ -10,7 +9,7 @@ declare global {
   }
 }
 
-/** Dark-theme params (applied on paid Calendly plans, ignored otherwise). */
+/** Dark-theme params (match the site palette). */
 export const calendlyUrl = (() => {
   const u = links.calendly;
   if (!u) return "";
@@ -20,15 +19,11 @@ export const calendlyUrl = (() => {
 
 let loading: Promise<CalendlyApi> | null = null;
 
-/** Loads Calendly's widget script + css once, on demand. */
+/** Loads Calendly's widget script once, on demand (we use our own styles). */
 export function loadCalendly(): Promise<CalendlyApi> {
   if (window.Calendly) return Promise.resolve(window.Calendly);
   if (loading) return loading;
   loading = new Promise((resolve, reject) => {
-    const css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "https://assets.calendly.com/assets/external/widget.css";
-    document.head.appendChild(css);
     const s = document.createElement("script");
     s.src = "https://assets.calendly.com/assets/external/widget.js";
     s.async = true;
@@ -42,10 +37,10 @@ export function loadCalendly(): Promise<CalendlyApi> {
   return loading;
 }
 
-/** Opens the booking popup; falls back to a new tab if the script is blocked. */
+export const BOOK_EVENT = "usm4:book";
+
+/** Opens the site's own booking dialog (see BookingDialog). */
 export function openCalendly() {
   if (!calendlyUrl) return;
-  loadCalendly()
-    .then((c) => c.initPopupWidget({ url: calendlyUrl }))
-    .catch(() => window.open(links.calendly, "_blank", "noopener"));
+  window.dispatchEvent(new Event(BOOK_EVENT));
 }

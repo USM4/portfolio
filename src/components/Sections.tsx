@@ -198,15 +198,19 @@ export function Contact({ t }: { t: Dict }) {
         </ul>
         {links.calendly && (
           <div id="book" className="reveal mt-20 grid scroll-mt-28 gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-5">
               <Label>
                 <span className="text-accent">↳</span> Calendly
               </Label>
               <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">{t.hire.bookTitle}</h3>
               <p className="mt-4 max-w-sm text-fg/70">{t.hire.bookLead}</p>
             </div>
-            <div className="min-w-0 lg:col-span-8">
-              <CalendlyInline loadingLabel={t.hire.bookLoading} openLabel={t.hire.bookOpen} />
+            <div className="flex min-w-0 lg:col-span-7 lg:justify-end">
+              <CalendlyInline
+                loadingLabel={t.hire.bookLoading}
+                openLabel={t.hire.bookOpen}
+                className="h-[760px] w-full max-w-[640px] rounded-2xl border border-line-strong shadow-[0_0_80px_-30px_rgba(198,255,61,0.3)]"
+              />
             </div>
           </div>
         )}
