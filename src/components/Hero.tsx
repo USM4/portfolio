@@ -1,6 +1,7 @@
 import { profile } from "@/content/site";
 import type { Dict } from "@/i18n";
-import { Button, Container, hireLink } from "./ui";
+import { Button, Container, btnClass, hireLink } from "./ui";
+import { BookCall } from "./BookCall";
 import { Scramble } from "./Scramble";
 import { CountUp } from "./CountUp";
 
@@ -29,7 +30,8 @@ export function Hero({ t }: { t: Dict }) {
           </h1>
           <p className="mt-7 max-w-xl text-base leading-relaxed text-fg/70 sm:text-lg">{t.hero.lead}</p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button href={hire.href} external>
+            <BookCall className={btnClass("primary")}>{t.hire.book}</BookCall>
+            <Button href={hire.href} variant="ghost" external>
               {hire.label}
             </Button>
             <Button href="#pipeline" variant="ghost">

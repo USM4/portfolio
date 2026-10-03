@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Command, Mail } from "lucide-react";
+import { CalendarDays, Command, Mail } from "lucide-react";
+import { BookCall } from "./BookCall";
 import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsappIcon as MessageCircle } from "./BrandIcons";
 import { links, profile } from "@/content/site";
 import { navItems } from "@/lib/nav";
@@ -179,7 +180,7 @@ export function Nav({ lang, t }: { lang: Locale; t: NavDict }) {
               </div>
               <button
                 onClick={() => setCmdOpen(true)}
-                className="hidden h-9 items-center gap-2 rounded-lg border border-line px-2.5 font-mono text-[11px] text-muted transition-colors hover:border-line-strong hover:text-fg md:flex"
+                className="hidden h-9 items-center gap-2 rounded-lg border border-line px-2.5 font-mono text-[11px] text-muted transition-colors hover:border-line-strong hover:text-fg md:flex lg:hidden xl:flex"
                 aria-label={t.nav.commandMenu}
               >
                 <Command className="h-3.5 w-3.5" />K
@@ -189,20 +190,18 @@ export function Nav({ lang, t }: { lang: Locale; t: NavDict }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="hidden h-9 w-9 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-line-strong hover:text-fg md:grid"
+                className="hidden h-9 w-9 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-line-strong hover:text-fg md:grid lg:hidden xl:grid"
               >
                 <Github className="h-4 w-4" />
               </a>
-              <a
-                href={hireHref}
-                target={hireTarget}
-                rel="noopener noreferrer"
-                className="group relative hidden h-9 items-center gap-1.5 overflow-hidden rounded-lg bg-accent px-4 text-[13px] font-semibold text-accent-ink transition-shadow hover:shadow-[0_0_28px_-4px_rgba(198,255,61,0.7)] sm:flex"
+              <BookCall
+                icon={false}
+                className="group relative hidden h-9 items-center gap-1.5 overflow-hidden whitespace-nowrap rounded-lg bg-accent px-4 text-[13px] font-semibold text-accent-ink transition-shadow hover:shadow-[0_0_28px_-4px_rgba(198,255,61,0.7)] sm:flex"
               >
-                <span className="relative z-10">{t.hire.short}</span>
-                <span className="relative z-10 transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100">→</span>
+                <CalendarDays aria-hidden className="relative z-10 h-3.5 w-3.5" />
+                <span className="relative z-10">{t.hire.bookShort}</span>
                 <span className="absolute inset-y-0 -left-1/2 w-1/3 skew-x-[-20deg] bg-white/50 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
-              </a>
+              </BookCall>
               <button
                 className="grid h-10 w-10 place-items-center rounded-lg border border-line lg:hidden"
                 aria-label={open ? t.nav.close : t.nav.open}
@@ -267,12 +266,15 @@ export function Nav({ lang, t }: { lang: Locale; t: NavDict }) {
           </ul>
           <div className="mt-auto space-y-4">
             <LangSwitch lang={lang} label={t.nav.language} variant="row" />
+            <BookCall className="flex items-center justify-center gap-2 rounded-xl bg-accent py-4 font-semibold text-accent-ink">
+              {t.hire.book}
+            </BookCall>
             <a
               href={hireHref}
               target={hireTarget}
               rel="noopener noreferrer"
               tabIndex={open ? 0 : -1}
-              className="block rounded-xl bg-accent py-4 text-center font-semibold text-accent-ink"
+              className="block rounded-xl border border-line-strong py-4 text-center font-semibold text-fg"
             >
               {t.hire.short} <span className="inline-block rtl:-scale-x-100">→</span>
             </a>

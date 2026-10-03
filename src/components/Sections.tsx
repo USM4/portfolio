@@ -2,7 +2,9 @@ import { links, profile, stack } from "@/content/site";
 import type { Dict } from "@/i18n";
 import { Terminal } from "./Terminal";
 import { CopyCommand } from "./CopyCommand";
-import { Button, Container, Label, SectionHead, hireLink, whatsappHref } from "./ui";
+import { Button, Container, Label, SectionHead, btnClass, hireLink, whatsappHref } from "./ui";
+import { BookCall } from "./BookCall";
+import { CalendlyInline } from "./CalendlyInline";
 
 export function Console({ t }: { t: Dict }) {
   return (
@@ -163,7 +165,8 @@ export function Contact({ t }: { t: Dict }) {
         </h2>
         <p className="reveal mt-8 max-w-xl text-lg text-fg/70">{t.contact.lead}</p>
         <div className="reveal mt-10 flex flex-wrap gap-3">
-          <Button href={hire.href} external>
+          <BookCall className={btnClass("primary")}>{t.hire.book}</BookCall>
+          <Button href={hire.href} variant="ghost" external>
             {hire.label}
           </Button>
           <Button href={whatsappHref} variant="ghost" external>
@@ -193,6 +196,20 @@ export function Contact({ t }: { t: Dict }) {
             </li>
           ))}
         </ul>
+        {links.calendly && (
+          <div id="book" className="reveal mt-20 grid scroll-mt-28 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <Label>
+                <span className="text-accent">↳</span> Calendly
+              </Label>
+              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">{t.hire.bookTitle}</h3>
+              <p className="mt-4 max-w-sm text-fg/70">{t.hire.bookLead}</p>
+            </div>
+            <div className="min-w-0 lg:col-span-8">
+              <CalendlyInline loadingLabel={t.hire.bookLoading} openLabel={t.hire.bookOpen} />
+            </div>
+          </div>
+        )}
       </Container>
     </section>
   );

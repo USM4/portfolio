@@ -20,7 +20,7 @@ export const en = {
     description:
       "I build commerce systems end to end: WooCommerce & Shopify stores, large web platforms with Laravel, NestJS and Next.js, and Docker-based cloud infrastructure.",
   },
-  hire: { upwork: "Hire me on Upwork", start: "Start a project", short: "Hire me" },
+  hire: { upwork: "Hire me on Upwork", start: "Start a project", short: "Hire me", book: "Book a free call", bookShort: "Book a call", bookTitle: "Book a 30-minute call", bookLead: "Pick a slot that suits you. Free, no commitment: we walk through your project and I tell you how I'd build it.", bookLoading: "Loading calendar…", bookOpen: "Open Calendly" },
   hero: {
     ...hero,
     enter: "Enter the pipeline",

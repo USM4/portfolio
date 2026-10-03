@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, Briefcase, Copy, CornerDownLeft, ExternalLink, FileDown, Globe, Hash, Rocket, Search } from "lucide-react";
+import { ArrowRight, Briefcase, CalendarDays, Copy, CornerDownLeft, ExternalLink, FileDown, Globe, Hash, Rocket, Search } from "lucide-react";
 import { links, profile } from "@/content/site";
 import { navItems, runTerminal } from "@/lib/nav";
 import { hireHref, whatsappHref } from "./ui";
+import { openCalendly } from "@/lib/calendly";
 import { localeNames, locales, lp, splitPath, type Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n";
 import { BayonetMark } from "./Logo";
@@ -45,6 +46,7 @@ export function CommandMenu({
       { group: c.navigate, label: c.home, hint: "top", icon: Hash, run: go("top") },
       ...navItems.map((n) => ({ group: c.navigate, label: t.nav.items[n.id], hint: `#${n.id}`, icon: Hash, run: go(n.id) })),
       { group: c.navigate, label: c.contact, hint: "#contact", icon: Hash, run: go("contact") },
+      ...(links.calendly ? [{ group: c.actions, label: t.hire.book, hint: "Calendly", icon: CalendarDays, run: () => openCalendly() }] : []),
       { group: c.actions, label: c.hire, hint: links.upwork ? "Upwork" : "email", icon: Briefcase, run: ext(hireHref) },
       {
         group: c.actions,
@@ -86,7 +88,7 @@ export function CommandMenu({
         .map((l) => ({ group: c.language, label: localeNames[l], hint: l.toUpperCase(), icon: Globe, run: () => router.push(lp(l, rest)) })),
     ];
     return out;
-  }, [pathname, router, lang, c, t.nav.items]);
+  }, [pathname, router, lang, c, t.nav.items, t.hire.book]);
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();

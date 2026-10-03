@@ -22,6 +22,7 @@ export const profile = {
 export const links = {
   upwork: "", // TODO: your Upwork profile URL
   fiverr: "", // TODO: your Fiverr profile URL
+  calendly: "https://calendly.com/usm4/30min", // your Calendly event URL
   github: "https://github.com/USM4",
   linkedin: "https://www.linkedin.com/in/oussama-redoine-406828210",
 };

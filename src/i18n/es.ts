@@ -6,7 +6,7 @@ export const es: Translation = {
     description:
       "Construyo sistemas de comercio electrónico de principio a fin: tiendas WooCommerce y Shopify, grandes plataformas web con Laravel, NestJS y Next.js, e infraestructura cloud basada en Docker.",
   },
-  hire: { upwork: "Contrátame en Upwork", start: "Empezar un proyecto", short: "Contrátame" },
+  hire: { upwork: "Contrátame en Upwork", start: "Empezar un proyecto", short: "Contrátame", book: "Reservar una llamada gratis", bookShort: "Reservar llamada", bookTitle: "Reserva una llamada de 30 minutos", bookLead: "Elige el horario que mejor te venga. Gratis y sin compromiso: repasamos tu proyecto y te explico cómo lo construiría.", bookLoading: "Cargando calendario…", bookOpen: "Abrir Calendly" },
   hero: {
     eyebrow: "Ingeniero full-stack · E-commerce · DevOps",
     title: ["Construyo sistemas", "de e-commerce. De punta a punta."],

@@ -59,6 +59,16 @@ type BtnProps = {
   className?: string;
 };
 
+export function btnClass(variant: "primary" | "ghost" = "primary") {
+  const base =
+    "group inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  return `${base} ${
+    variant === "primary"
+      ? "bg-accent text-accent-ink hover:bg-[#d8ff7a] hover:shadow-[0_0_30px_-4px_rgba(198,255,61,0.6)]"
+      : "border border-line-strong text-fg hover:border-fg/40 hover:bg-white/[0.03]"
+  }`;
+}
+
 export function Button({ href, children, variant = "primary", external, className = "" }: BtnProps) {
   const base =
     "group inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
