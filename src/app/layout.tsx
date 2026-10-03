@@ -6,6 +6,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { Intro } from "@/components/Intro";
+import { Slash } from "@/components/Slash";
 import "./globals.css";
 
 
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main>{children}</main>
         <Footer />
         <Reveal />
+        <Slash />
       </body>
     </html>
   );
